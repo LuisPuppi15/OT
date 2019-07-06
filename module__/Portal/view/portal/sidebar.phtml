@@ -1,0 +1,28 @@
+<div class="cont-sidebar">
+	<?php echo $this->partial('portal/menu-lateral.phtml') ?>
+	<div class="cont-mas-noticias">
+		<h1 class="titulo-cont">MÁS NOTICIAS</h1>
+		<ul class="mas-noticias">
+			<?php
+			$noticias = $this->mas_noticias_helper();
+
+			foreach ($noticias as $noticia) {
+				$href = $this->url('portal/noticia', array('codigo' => $noticia->getNnotcodigo()));
+				?>
+				<li>
+					<div class="noticia">
+						<a href="<?php echo $href ?>">
+							<img src="<?php echo $this->htImgUrl($noticia->getCnotrutaimgfull(), 'estandar') ?>" alt="" class="miniatura">
+						</a>
+						<div class="texto">
+							<a href="<?php echo $href ?>"><h1 class="titulo"><?php echo $noticia->getCnottitulo() ?></h1></a>
+							<p><?php echo $noticia->getCnotpietitulo() ?></p>
+						</div>
+					</div>
+				</li>
+				<?php
+			}
+			?>
+		</ul>
+	</div>
+</div>

@@ -1,0 +1,20 @@
+@import 'parametros.scss';
+@import 'mixins.scss';
+
+[data-componente~="modal"]{
+	.marco{
+		margin: 10px;
+		background-color: #FFF;
+		>.row{
+			margin: 0;
+		}
+		.btn-modal.llamar{
+			color: #FFF;
+			border: 1px solid $ind-color-acept;
+			background-color: $ind-color-acept;
+		}
+		.btn-modal.llamar:hover{
+			background-color: $ind-color-acept * 0.8;
+		}
+	}
+}

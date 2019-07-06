@@ -1,0 +1,24 @@
+[data-componente~="perusuario-accesos"] {
+  position: relative; }
+  [data-componente~="perusuario-accesos"] .btn-form-adc {
+    position: absolute;
+    top: 15px;
+    right: 40px;
+    padding: 6px 10px 4px 10px;
+    background-color: #FFF;
+    border: none;
+    text-shadow: none;
+    border: 1px solid #DDD; }
+    [data-componente~="perusuario-accesos"] .btn-form-adc .fa {
+      font-size: 14px;
+      text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
+      color: #777; }
+    [data-componente~="perusuario-accesos"] .btn-form-adc:hover, [data-componente~="perusuario-accesos"] .btn-form-adc:focus {
+      background-color: #EE3939;
+      border-color: transparent; }
+      [data-componente~="perusuario-accesos"] .btn-form-adc:hover .fa, [data-componente~="perusuario-accesos"] .btn-form-adc:focus .fa {
+        color: #FFF; }
+    [data-componente~="perusuario-accesos"] .btn-form-adc:focus {
+      outline: none; }
+
+/*# sourceMappingURL=perusuario-accesos.css.map */

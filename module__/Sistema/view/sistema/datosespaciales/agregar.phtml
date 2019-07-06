@@ -1,0 +1,51 @@
+<div class="componente" data-componente="modal" data-modal-nombre="modal-post" data-modal-width="850" data-modal-title="Registrar">
+	<div class="marco">
+		<div class="componente" data-componente="formulario" data-formulario-nombre="formulario">
+			<?php
+			$form = $this->form;
+			$form->setAttribute('data-ruta', $this->url($this->ruta, array('action' => 'agregar')));
+
+			echo $this->form()->openTag($form);
+			?>
+			<div class="modal-body">
+				<?php
+				$layoutHorizontal = TwbBundle\Form\View\Helper\TwbBundleForm::LAYOUT_HORIZONTAL;
+
+				// cdatespnombre
+				$input = $form->get('cdatespnombre');
+				$input->setOptions(array(
+					'column-size' => 'lg-5',
+					'label_attributes' => array(
+						'class' => 'col-lg-2',
+						),
+					'twb-layout' => $layoutHorizontal,
+					));
+				echo $this->formRow($input);
+
+				// cdatespcontenido
+				$input = $form->get('cdatespcontenido');
+				$input->setOptions(array(
+					'column-size' => 'lg-10',
+					'label_attributes' => array(
+						'class' => 'col-lg-2',
+						),
+					'twb-layout' => $layoutHorizontal,
+					));
+				echo $this->formRow($input);
+				?>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default btn-modal cancelar" data-dismiss="modal">Cancelar</button>
+					<?php
+					// enviar
+					$button = $form->get('enviar');
+					$button->setOptions(array(
+						'column-size' => 'sm-10 col-sm-offset-2',
+						));
+					echo $this->formButton($button);
+					?>
+				</div>
+			</div>
+			<?php echo $this->form()->closeTag($form); ?>
+		</div>
+	</div>
+</div>

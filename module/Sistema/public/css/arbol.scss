@@ -1,0 +1,76 @@
+@import 'parametros.scss';
+@import 'mixins.scss';
+
+[data-componente~="arbol"]{
+	max-height: 360px;
+	overflow-y: auto;
+	.jstree-container-ul{
+		.jstree-anchor{
+			position: relative;
+			padding: 0px 0px 0px 18px;
+			font-family: $font-2;
+			font-size: 12px;
+			font-weight: 400;
+			.jstree-icon{
+				display: none;
+			}
+			.texto{
+				opacity: 1;
+				color: $color-2;
+			}
+			.semi-activado{
+				opacity: 0;
+				.fa{
+					color: $ind-color-1;
+				}
+			}
+			.activado{
+				opacity: 0;
+				.fa{
+					color: $ind-color-1;
+				}
+			}
+			>span:not(.texto){
+				position: absolute;
+				top: 1px;
+				left: 0px;
+				@include transition-min(opacity, 0.3s);
+			}
+			.fa{
+				width: 18px;
+				font-size: 15px;
+			}
+			.jstree-undetermined + .jstree-themeicon{
+				& + .semi-activado{
+					opacity: 1;
+					& + .desactivado{
+						opacity: 0;
+					}
+				}
+			}
+			&:not(.jstree-clicked){
+				color: $color-2;
+			}
+			&.jstree-clicked{
+				background: transparent;
+				box-shadow: none;
+				.texto{
+					color: $color-2;
+				}
+				.semi-activado{
+					opacity: 0;
+				}
+				.activado{
+					opacity: 1;
+				}
+				.desactivado{
+					opacity: 0;
+				}
+			}
+			&.jstree-hovered{
+				background-color: transparent;
+				box-shadow: none;
+			}
+		}
+	}
+}

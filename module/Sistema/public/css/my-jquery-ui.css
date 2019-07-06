@@ -1,0 +1,70 @@
+.ui-widget {
+  font-family: "Open Sans", sans-serif; }
+  .ui-widget button {
+    font-size: 11px; }
+  .ui-widget input {
+    font-family: "Open Sans", sans-serif;
+    font-size: 12px; }
+  .ui-widget textarea {
+    font-family: "Open Sans", sans-serif;
+    font-size: 12px; }
+  .ui-widget small {
+    font-size: 12px; }
+
+.ui-widget-header {
+  background: #2B3D51;
+  border: none; }
+  .ui-widget-header .ui-dialog-title {
+    font-size: 12px;
+    font-family: "Open Sans", sans-serif; }
+  .ui-widget-header .ui-dialog-titlebar-close {
+    background: none;
+    border: none; }
+    .ui-widget-header .ui-dialog-titlebar-close .ui-icon-closethick {
+      opacity: 0; }
+    .ui-widget-header .ui-dialog-titlebar-close .btn-close {
+      display: block;
+      width: 18px;
+      color: #e5e5e5;
+      font-size: 18px;
+      line-height: 16px; }
+  .ui-widget-header .ui-dialog-titlebar-close:hover .btn-close {
+    color: #FFF; }
+
+.ui-dialog.ui-widget-content {
+  padding: 0; }
+
+.ui-dialog {
+  overflow: visible;
+  border: none;
+  -moz-box-shadow: 0px 1px 8px -1px #747474;
+  -webkit-box-shadow: 0px 1px 8px -1px #747474;
+  box-shadow: 0px 1px 8px -1px #747474; }
+  .ui-dialog .ui-dialog-content {
+    padding: 0;
+    background-color: #F2F2F2; }
+  .ui-dialog .ui-dialog-titlebar {
+    padding: 8px 15px; }
+  .ui-dialog > .dialog {
+    overflow: visible; }
+
+.ui-corner-all {
+  -webkit-border-radius: 0px 0px 0px 0px;
+  -moz-border-radius: 0px 0px 0px 0px;
+  -ms-border-radius: 0px 0px 0px 0px;
+  border-radius: 0px 0px 0px 0px; }
+
+.ui-widget-overlay {
+  background: #666;
+  opacity: 0.5; }
+
+.ui-tooltip {
+  font-family: "Open Sans", sans-serif;
+  font-size: 12px;
+  color: #FFF;
+  border-color: transparent;
+  background: #000;
+  box-shadow: none;
+  font-weight: bold; }
+
+/*# sourceMappingURL=my-jquery-ui.css.map */

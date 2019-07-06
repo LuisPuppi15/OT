@@ -1,0 +1,26 @@
+<ul class="lista-items">
+	<?php
+	$index = 0;
+	foreach ($infoterritorials as $key => $infoterritorial) {
+		$cinfternombre = $infoterritorial->getCinfternombre();
+		$cinfterurl = $infoterritorial->getCinfterurl();
+		?>
+		<li class="item" data-id="<?php echo $infoterritorial->getNinftercodigo() ?>">
+			<label class="my-radio">
+				<input type="radio" name="selector">
+				<i class="fa fa-circle-thin"></i>
+				<i class="fa fa-dot-circle-o"></i>
+				<div class="titulo"><?php echo $cinfternombre?></div>
+			</label>
+			<hr>
+			<?php if ($cinfterurl != ''): ?>
+				<div class="campo-compuesto">
+					<i class="fa fa-external-link"></i>
+					<a target="_blank" href="<?php echo $cinfterurl ?>">Ver</a>
+				</div>
+			<?php endif ?>
+		</li>
+		<?php
+	}
+	?>
+</ul>

@@ -1,0 +1,52 @@
+<?php
+
+namespace Sistema\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Datosespaciales
+ *
+ * @ORM\Table(name="datosespaciales")
+ * @ORM\Entity(repositoryClass="Sistema\Repository\DatosespacialesRepository")
+ */
+class Datosespaciales {
+	/**
+	 * @var integer
+	 *
+	 * @ORM\Column(name="ndatespcodigo", type="integer", nullable=false)
+	 * @ORM\Id
+	 * @ORM\GeneratedValue(strategy="SEQUENCE")
+	 * @ORM\SequenceGenerator(sequenceName="datosespaciales_ndatespcodigo_seq", allocationSize=1, initialValue=1)
+	 */
+	private $ndatespcodigo;
+
+	/**
+	 * @var string
+	 *
+	 * @ORM\Column(name="cdatespcnombre", type="string", length=100, nullable=false)
+	 */
+	private $cdatespcnombre;
+
+	/**
+	 * @var string
+	 *
+	 * @ORM\Column(name="cdatespccontenido", type="string", nullable=true)
+	 */
+	private $cdatespccontenido;
+
+	/**
+	 * @var integer
+	 *
+	 * @ORM\Column(name="ndatespcjerarquia", type="integer", nullable=false)
+	 */
+	private $ndatespcjerarquia;
+
+	/**
+	 * @var integer
+	 *
+	 * @ORM\Column(name="ndatespcestado", type="integer", nullable=false)
+	 */
+	private $ndatespcestado;
+
+}

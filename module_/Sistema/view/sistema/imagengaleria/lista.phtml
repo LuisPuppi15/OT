@@ -1,0 +1,57 @@
+<ul class="lista-items" data-ruta-orden="<?php echo $this->url($this->ruta, array('action' => 'ordenar', 'parametros' => ':parametros')) ?>">
+	<?php
+	$index = 0;
+	foreach ($imagengalerias as $key => $imagengaleria) {
+		?>
+		<li class="item" data-id="<?php echo $imagengaleria->getNimagalcodigo() ?>">
+			<?php
+			$cimagaltitulo = $imagengaleria->getCimagaltitulo();
+			$cimagalimg = $imagengaleria->getCimagalimg();
+			$galeria = ($imagengaleria->getGaleria()) ? $imagengaleria->getGaleria()->getCgaltitulo() : 'Ninguna';
+			$dimagalfechareg = $imagengaleria->getDimagalfechareg()->format('d-m-Y');
+			$nimagalestado = $imagengaleria->getNimagalestado();
+			?>
+			<label class="my-radio">
+				<input type="radio" name="selector">
+				<i class="fa fa-circle-thin"></i>
+				<i class="fa fa-dot-circle-o"></i>
+				<div class="titulo"><?php echo $cimagaltitulo ?></div>
+			</label>
+			<?php if ($cimagalimg != ''): ?>
+				<div class="campo-img">
+					<img src="<?php echo $this->htImgUrl($cimagalimg, 'estandar') ?>" alt="">
+				</div>
+			<?php endif ?>
+			<hr>
+			<?php if ($galeria != ''): ?>
+				<div class="campo-compuesto">
+					<i class="fa fa-picture-o"></i>
+					<div class="texto">
+						<?php echo $galeria ?>
+					</div>
+				</div>
+			<?php endif ?>
+			<?php if ($dimagalfechareg != ''): ?>
+				<div class="campo-compuesto">
+					<i class="fa fa-calendar"></i>
+					<div class="texto">
+						<?php echo $dimagalfechareg ?>
+					</div>
+				</div>
+			<?php endif ?>
+			<?php if ($nimagalestado == 1): ?>
+				<div class="campo-compuesto">
+					<i class="fa fa-unlock"></i>
+					<div class="texto">No publicado</div>
+				</div>
+			<?php elseif($nimagalestado == 2): ?>
+				<div class="campo-compuesto">
+					<i class="fa fa-unlock-alt"></i>
+					<div class="texto">Publicado</div>
+				</div>
+			<?php endif ?>
+		</li>
+		<?php
+	}
+	?>
+</ul>

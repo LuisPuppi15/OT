@@ -1,0 +1,48 @@
+.cont-galeria .lista {
+  float: right;
+  width: 620px;
+  padding: 15px; }
+  .cont-galeria .lista .galeria {
+    float: left;
+    clear: left;
+    width: 540px;
+    margin: 10px 0px 0px 30px;
+    padding: 0;
+    list-style: none; }
+    .cont-galeria .lista .galeria li > a {
+      float: left; }
+      .cont-galeria .lista .galeria li > a .miniatura {
+        float: left;
+        width: 157px;
+        height: 162px;
+        margin: 0px 15px 15px 0px;
+        border: 6px solid #E1D9EC;
+        box-sizing: border-box;
+        opacity: 0.7;
+        -webkit-transition-property: opacity;
+        -webkit-transition-duration: 0.7s;
+        transition-property: opacity;
+        transition-duration: 0.7s; }
+        .cont-galeria .lista .galeria li > a .miniatura:hover {
+          opacity: 1; }
+.cont-galeria .titulo-con-logo {
+  font-family: dinBold;
+  color: #3E3D40;
+  font-size: 18px;
+  margin: 0px;
+  padding: 10px 0px; }
+  .cont-galeria .titulo-con-logo .fa {
+    float: left;
+    margin: 0px 10px 12px 0px;
+    padding: 7px 7px 7px 7px;
+    color: #D6E7E4;
+    background-color: #12A1A7;
+    -webkit-border-radius: 20px 20px 20px 20px;
+    -moz-border-radius: 20px 20px 20px 20px;
+    -ms-border-radius: 20px 20px 20px 20px;
+    border-radius: 20px 20px 20px 20px; }
+  .cont-galeria .titulo-con-logo span {
+    float: left;
+    padding: 7px 0px 0px 0px; }
+
+/*# sourceMappingURL=galeria.css.map */

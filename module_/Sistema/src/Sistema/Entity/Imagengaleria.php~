@@ -1,0 +1,72 @@
+<?php
+
+namespace Sistema\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Imagengaleria
+ *
+ * @ORM\Table(name="imagengaleria")
+ * @ORM\Entity
+ */
+class Imagengaleria {
+	/**
+	 * @var integer
+	 *
+	 * @ORM\Column(name="nimagalcodigo", type="integer", nullable=false)
+	 * @ORM\Id
+	 * @ORM\GeneratedValue(strategy="SEQUENCE")
+	 * @ORM\SequenceGenerator(sequenceName="imagengaleria_nimagalcodigo_seq", allocationSize=1, initialValue=1)
+	 */
+	private $nimagalcodigo;
+
+	/**
+	 * @var string
+	 *
+	 * @ORM\Column(name="cimagaljerarquia", type="string", length=10, nullable=false)
+	 */
+	private $cimagaljerarquia;
+
+	/**
+	 * @var string
+	 *
+	 * @ORM\Column(name="cimagaltitulo", type="string", length=250, nullable=true)
+	 */
+	private $cimagaltitulo;
+
+	/**
+	 * @var string
+	 *
+	 * @ORM\Column(name="cimagalimg", type="string", length=250, nullable=false)
+	 */
+	private $cimagalimg;
+
+	/**
+	 * @var \DateTime
+	 *
+	 * @ORM\Column(name="dimagalfechareg", type="date", nullable=false)
+	 */
+	private $dimagalfechareg;
+
+	/**
+	 * @var \DateTime
+	 *
+	 * @ORM\Column(name="dimagalfechapublico", type="date", nullable=true)
+	 */
+	private $dimagalfechapublico;
+
+	/**
+	 * @var integer
+	 *
+	 * @ORM\Column(name="nimagalestado", type="integer", nullable=false)
+	 */
+	private $nimagalestado;
+
+	/**
+	 * @ORM\ManyToOne(targetEntity="Sistema\Entity\Galeria")
+	 * @ORM\JoinColumn(name="ngalcodigo", referencedColumnName="ngalcodigo")
+	 */
+	protected $galeria;
+
+}

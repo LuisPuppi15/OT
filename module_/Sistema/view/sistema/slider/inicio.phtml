@@ -1,0 +1,74 @@
+<div class="componente" data-componente="mantenedor" data-mantenedor-nombre="mantenedor">
+	<div class="dialog post"></div>
+	<?php echo $this->partial('sistema/plantillas/alerta-modal.phtml') ?>
+	<div class="row navegador">
+		<div class="col-lg-12">
+			<ul>
+				<li><a href="" class="resaltado">Inicio</a></li>
+				<li class="separador">></li>
+				<li>Sliders</li>
+			</ul>
+		</div>
+	</div>
+	<div class="marco-data">
+		<div class="row botonera">
+			<div class="col-lg-12">
+				<?php
+				echo $this->partial('sistema/botonera.phtml', array(
+					'botones' => $this->botones,
+					'rutaRaiz' => $this->rutaRaiz,
+					)
+				);
+				?>
+			</div>
+		</div>
+		<div class="componente" data-componente="lista-mantenedor" data-lista-mantenedor-nombre="lista-mantenedor" data-ruta="<?php echo $this->rutaFiltrar ?>">
+			<div class="row data">
+				<div class="col-lg-12">
+					<div class="row lista">
+						<div class="col-lg-12">
+							<div class="cnt-lista">
+								<table class="table">
+									<tr class="opciones">
+										<td class="icono"><span class="glyphicon glyphicon-th"></span></td>
+										<td>
+											<h1 class="titulo">Sliders</h1>
+										</td>
+										<td>
+											<!-- Selector -->
+											<select class="selectpicker" name="selector-items" data-width="100px">
+												<?php foreach ($this->opcionesItems as $opcion): ?>
+													<?php if ($opcion['selected']): ?>
+														<option value="<?php echo $opcion['value'] ?>" selected="selected">
+															<?php echo $opcion['label'] ?>
+														</option>
+													<?php else: ?>
+														<option value="<?php echo $opcion['value'] ?>">
+															<?php echo $opcion['label'] ?>
+														</option>
+													<?php endif ?>
+												<?php endforeach ?>
+											</select>
+											<!-- Búsqueda -->
+											<input class="form-control" type="text" name="s.cslititulo-s.cslidescripcion" id="" placeholder="Búsqueda" autocomplete="off">
+										</td>
+									</tr>
+									<tr class="items">
+										<td colspan="100%">
+											<?php echo $this->partial('sistema/slider/lista.phtml', array('sliders' => $this->sliders)) ?>
+										</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+					</div>
+					<div class="row paginador">
+						<div class="col-lg-12 text-center">
+							<?php echo $this->partial('sistema/paginador.phtml', array('paginador' => $this->paginador, 'ruta' => $this->ruta)) ?>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

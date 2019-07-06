@@ -1,0 +1,29 @@
+<ul class="menu-interno">
+	<?php
+	$menusLaterales = $this->menu_lateral_helper();
+	$menSisInfTerritorial = $menusLaterales['menSisInfTerritorial'];
+	$menPublicaciones = $menusLaterales['menPublicaciones'];
+	?>
+	<li>
+		<a href="<?php echo $menSisInfTerritorial->getCinfterurl() ?>" target="_blank" class="sis-inf-ter">
+			<span class="fa fa-cloud"></span>
+			<span class="texto"><?php echo $menSisInfTerritorial->getCinfternombre() ?></span>
+		</a>
+	</li>
+	<li>
+	<a href="<?php echo $this->url('portal/datosespaciales') ?>" class="est-dat-esp">
+			<span class="fa fa-arrow-down"></span>
+			<span class="texto">
+				INFRAESTRUCTURA DE <br>
+				DATOS ESPACIALES
+			</span>
+		</a>
+	</li>
+	<li>
+		<a href="<?php echo $menPublicaciones->getCpuburl() ?>" class="publicaciones">
+			<span class="fa fa-comment"></span>
+			<span class="texto"><?php echo $menPublicaciones->getCpubnombre() ?></span>
+		</a>
+	</li>
+	<div class="triangulo"></div>
+</ul>

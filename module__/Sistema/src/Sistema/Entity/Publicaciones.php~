@@ -1,0 +1,45 @@
+<?php
+
+namespace Sistema\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Publicaciones
+ *
+ * @ORM\Table(name="publicaciones")
+ * @ORM\Entity(repositoryClass="Sistema\Repository\PublicacionesRepository")
+ */
+class Publicaciones {
+	/**
+	 * @var integer
+	 *
+	 * @ORM\Column(name="npubcodigo", type="integer", nullable=false)
+	 * @ORM\Id
+	 * @ORM\GeneratedValue(strategy="SEQUENCE")
+	 * @ORM\SequenceGenerator(sequenceName="publicaciones_npubcodigo_seq", allocationSize=1, initialValue=1)
+	 */
+	private $npubcodigo;
+
+	/**
+	 * @var string
+	 *
+	 * @ORM\Column(name="cpubnombre", type="string", length=100, nullable=true)
+	 */
+	private $cpubnombre;
+
+	/**
+	 * @var string
+	 *
+	 * @ORM\Column(name="cpuburl", type="string", length=500, nullable=false)
+	 */
+	private $cpuburl;
+
+	/**
+	 * @var integer
+	 *
+	 * @ORM\Column(name="npubestado", type="integer", nullable=false)
+	 */
+	private $npubestado;
+
+}

@@ -1,0 +1,38 @@
+@import 'mixins.scss';
+
+.cont-mapaweb{
+	.detalle{
+		float: right;
+		width: 620px;
+		padding: 15px;
+		h2{
+			margin-bottom: 20px;
+			font-size: 18px;
+			font-family: dinBold;
+		}
+		.menus{
+			margin: 0px 0px 10px 0px;
+			padding: 0px 0px 0px 10px;
+			list-style: none;
+			list-style-position: inside;
+			li{
+				a{
+					color: #000;
+					font-family: dinBold;
+					font-size: 13px;
+					&:hover{
+						text-decoration: none;
+					}
+				}
+				.menus{
+					list-style-type: square;
+					li{
+						a{
+							font-family: dinRegular;
+						}
+					}
+				}
+			}
+		}
+	}
+}

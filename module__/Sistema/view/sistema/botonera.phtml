@@ -1,0 +1,29 @@
+<?php
+foreach ($botones as $boton) {
+	$nombre = $boton->getCctrnombre();
+	$jsonValor = json_decode($boton->getCctrvalor());
+	$jsonDescripcion = json_decode($boton->getNctrdescripcion());
+	$accion = $jsonValor->accion;
+	$icono = $jsonDescripcion->icono;
+
+	$ruta = '';
+	if (isset($jsonValor->ruta)) {
+		$dataRuta = $jsonValor->ruta;
+		$action = $dataRuta->action;
+
+		$parametros = '';
+		if (isset($dataRuta->parametros)) {
+			$parametros = $dataRuta->parametros;
+			$ruta = $this->url($this->rutaRaiz, array('action' => $action, 'parametros' => $parametros));
+		} else {
+			$ruta = $this->url($this->rutaRaiz, array('action' => $action));
+		}
+	}
+	?>
+	<button class="btn btn-default btn-accion <?php echo $accion ?>" data-ruta="<?php echo $ruta ?>" data-accion="<?php echo $accion ?>">
+		<i class="<?php echo $icono ?>"></i>
+		<span class="texto"><?php echo $nombre ?></span>
+	</button>
+	<?php
+}
+?>

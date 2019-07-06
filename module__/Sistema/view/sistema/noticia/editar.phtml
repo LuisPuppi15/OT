@@ -1,0 +1,111 @@
+<div class="componente" data-componente="modal" data-modal-nombre="modal-post" data-modal-width="800" data-modal-title="Editar">
+	<div class="marco">
+		<div class="componente" data-componente="formulario" data-formulario-nombre="formulario">
+			<?php
+			$form = $this->form;
+			$form->setAttribute('data-ruta', $this->url($this->ruta, array('action' => 'editar', 'parametros' => $this->id)));
+
+			echo $this->form()->openTag($form);
+			?>
+			<div class="modal-body">
+				<?php
+				$layoutHorizontal = TwbBundle\Form\View\Helper\TwbBundleForm::LAYOUT_HORIZONTAL;
+
+				// cnottitulo
+				$input = $form->get('cnottitulo');
+				$input->setAttributes(array(
+					'data-bv-notempty'=> '',
+					));
+				$input->setOptions(array(
+					'column-size' => 'lg-6',
+					'label_attributes' => array(
+						'class' => 'col-lg-3',
+						),
+					'twb-layout' => $layoutHorizontal,
+					));
+				echo $this->formRow($input);
+
+				// cnotpietitulo
+				$input = $form->get('cnotpietitulo');
+				$input->setOptions(array(
+					'column-size' => 'lg-9',
+					'label_attributes' => array(
+						'class' => 'col-lg-3',
+						),
+					'twb-layout' => $layoutHorizontal,
+					));
+				echo $this->formRow($input);
+
+				// cnotrutaimgfull
+				$cnotrutaimgfull = $form->get('cnotrutaimgfull');
+				$cnotrutaimgfull->setOptions(array(
+					'label_attributes' => array(
+						'class' => 'col-lg-3 control-label',
+						),
+					)
+				);
+				$value = $cnotrutaimgfull->getAttribute('data-value');
+				$cnotrutaimgfullPath = ($value != '') ? $this->htImgUrl($cnotrutaimgfull->getAttribute('data-value'), 'estandar') : '';
+				$cnotrutaimgfull->setAttribute('data-path', $cnotrutaimgfullPath);
+
+				// imgfullString
+				$imgfullString = $form->get('imgfullString');
+				$imgfullString->setOptions(array(
+					'label_attributes' => array(
+						'class' => 'col-lg-3',
+						),
+					)
+				);
+				?>
+				<div class="form-group file-group">
+					<?php echo $this->formLabel($cnotrutaimgfull) ?>
+					<div class="col-lg-6">
+						<?php echo $this->formElement($cnotrutaimgfull) ?>
+						<?php echo $this->formElement($imgfullString) ?>
+					</div>
+				</div>
+				<?php
+				// dnotfecha
+				$input = $form->get('dnotfecha');
+				$input->setAttributes(array(
+					'data-bv-notempty'=> '',
+					));
+				$input->setOptions(array(
+					'column-size' => 'lg-3',
+					'label_attributes' => array(
+						'class' => 'col-lg-3',
+						),
+					'twb-layout' => $layoutHorizontal,
+					));
+				echo $this->formRow($input);
+
+				// cnotcontenido
+				$input = $form->get('cnotcontenido');
+				$input->setAttributes(array(
+					'data-bv-notempty'=> '',
+					));
+				$input->setOptions(array(
+					'column-size' => 'lg-9',
+					'label_attributes' => array(
+						'class' => 'col-lg-3',
+						),
+					'twb-layout' => $layoutHorizontal,
+					));
+				echo $this->formRow($input);
+				?>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default btn-modal cancelar" data-dismiss="modal">Cancelar</button>
+					<?php
+					// enviar
+					$button = $form->get('enviar');
+					$button->setOptions(array(
+						'column-size' => 'sm-10 col-sm-offset-2',
+						));
+					echo $this->formButton($button);
+					?>
+				</div>
+			</div>
+			<?php echo $this->form()->closeTag($form); ?>
+		</div>
+	</div>
+</div>

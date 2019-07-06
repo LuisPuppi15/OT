@@ -1,0 +1,28 @@
+.cont-datosespaciales .detalle {
+  float: right;
+  width: 645px;
+  padding: 15px 10px; }
+  .cont-datosespaciales .detalle .nav {
+    border-bottom: 1px solid transparent; }
+    .cont-datosespaciales .detalle .nav > li a {
+      padding: 8px 10px;
+      font-family: dinBold;
+      font-size: 12px;
+      margin: 0;
+      color: #888;
+      border-left: 1px solid transparent;
+      border-bottom: 1px solid #DDD;
+      border-right: 1px solid transparent;
+      -webkit-border-radius: 0px 0px 0px 0px;
+      -moz-border-radius: 0px 0px 0px 0px;
+      -ms-border-radius: 0px 0px 0px 0px;
+      border-radius: 0px 0px 0px 0px; }
+    .cont-datosespaciales .detalle .nav > li.active a {
+      background-color: #12A1A7;
+      color: #FFF;
+      border-top: 1px solid transparent; }
+  .cont-datosespaciales .detalle .tab-content {
+    min-height: 500px;
+    padding: 10px; }
+
+/*# sourceMappingURL=datosespaciales.css.map */

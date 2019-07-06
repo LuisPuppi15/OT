@@ -1,0 +1,315 @@
+<?php
+
+namespace Sistema\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Galeria
+ *
+ * @ORM\Table(name="galeria")
+ * @ORM\Entity(repositoryClass="Sistema\Repository\GaleriaRepository")
+ */
+class Galeria {
+	/**
+	 * @var integer
+	 *
+	 * @ORM\Column(name="ngalcodigo", type="integer", nullable=false)
+	 * @ORM\Id
+	 * @ORM\GeneratedValue(strategy="SEQUENCE")
+	 * @ORM\SequenceGenerator(sequenceName="galeria_ngalcodigo_seq", allocationSize=1, initialValue=1)
+	 */
+	private $ngalcodigo;
+
+	/**
+	 * @var string
+	 *
+	 * @ORM\Column(name="cgaljerarquia", type="string", length=10, nullable=false)
+	 */
+	private $cgaljerarquia;
+
+	/**
+	 * @var string
+	 *
+	 * @ORM\Column(name="cgaltitulo", type="string", length=200, nullable=false)
+	 */
+	private $cgaltitulo;
+
+	/**
+	 * @var string
+	 *
+	 * @ORM\Column(name="cgalsubtitulo", type="string", length=200, nullable=true)
+	 */
+	private $cgalsubtitulo;
+
+	/**
+	 * @var string
+	 *
+	 * @ORM\Column(name="cgalimagen", type="string", length=500, nullable=false)
+	 */
+	private $cgalimagen;
+
+	/**
+	 * @var \DateTime
+	 *
+	 * @ORM\Column(name="dgalfecha", type="date", nullable=true)
+	 */
+	private $dgalfecha;
+
+	/**
+	 * @var integer
+	 *
+	 * @ORM\Column(name="ngalestado", type="integer", nullable=false)
+	 */
+	private $ngalestado;
+
+	/**
+	 * @var \Sistema\Entity\Galeria
+	 *
+	 * @ORM\ManyToOne(targetEntity="Sistema\Entity\Galeria")
+	 * @ORM\JoinColumns({
+	 *   @ORM\JoinColumn(name="ngalcodpadre", referencedColumnName="ngalcodigo")
+	 * })
+	 */
+	private $padre;
+
+	/**
+	 * @var \Sistema\Entity\Galeria
+	 *
+	 * @ORM\OneToMany(targetEntity="Sistema\Entity\Galeria", mappedBy="padre")
+	 */
+	protected $hijos;
+
+	/**
+	 * @ORM\OneToMany(targetEntity="Sistema\Entity\Imagengaleria", mappedBy="galeria")
+	 */
+	protected $imagengalerias;
+
+	/**
+	 * Constructor
+	 */
+	public function __construct() {
+		$this->hijos = new \Doctrine\Common\Collections\ArrayCollection();
+		$this->imagengalerias = new \Doctrine\Common\Collections\ArrayCollection();
+	}
+
+	public function __toString() {
+		return $this->cgaltitulo;
+	}
+
+	/**
+	 * Get ngalcodigo
+	 *
+	 * @return integer
+	 */
+	public function getNgalcodigo() {
+		return $this->ngalcodigo;
+	}
+
+	/**
+	 * Set cgaljerarquia
+	 *
+	 * @param string $cgaljerarquia
+	 * @return Galeria
+	 */
+	public function setCgaljerarquia($cgaljerarquia) {
+		$this->cgaljerarquia = $cgaljerarquia;
+
+		return $this;
+	}
+
+	/**
+	 * Get cgaljerarquia
+	 *
+	 * @return string
+	 */
+	public function getCgaljerarquia() {
+		return $this->cgaljerarquia;
+	}
+
+	/**
+	 * Set cgaltitulo
+	 *
+	 * @param string $cgaltitulo
+	 * @return Galeria
+	 */
+	public function setCgaltitulo($cgaltitulo) {
+		$this->cgaltitulo = $cgaltitulo;
+
+		return $this;
+	}
+
+	/**
+	 * Get cgaltitulo
+	 *
+	 * @return string
+	 */
+	public function getCgaltitulo() {
+		return $this->cgaltitulo;
+	}
+
+	/**
+	 * Set cgalsubtitulo
+	 *
+	 * @param string $cgalsubtitulo
+	 * @return Galeria
+	 */
+	public function setCgalsubtitulo($cgalsubtitulo) {
+		$this->cgalsubtitulo = $cgalsubtitulo;
+
+		return $this;
+	}
+
+	/**
+	 * Get cgalsubtitulo
+	 *
+	 * @return string
+	 */
+	public function getCgalsubtitulo() {
+		return $this->cgalsubtitulo;
+	}
+
+	/**
+	 * Set cgalimagen
+	 *
+	 * @param string $cgalimagen
+	 * @return Galeria
+	 */
+	public function setCgalimagen($cgalimagen) {
+		$this->cgalimagen = $cgalimagen;
+
+		return $this;
+	}
+
+	/**
+	 * Get cgalimagen
+	 *
+	 * @return string
+	 */
+	public function getCgalimagen() {
+		return $this->cgalimagen;
+	}
+
+	/**
+	 * Set dgalfecha
+	 *
+	 * @param \DateTime $dgalfecha
+	 * @return Galeria
+	 */
+	public function setDgalfecha($dgalfecha) {
+		$this->dgalfecha = $dgalfecha;
+
+		return $this;
+	}
+
+	/**
+	 * Get dgalfecha
+	 *
+	 * @return \DateTime
+	 */
+	public function getDgalfecha() {
+		return $this->dgalfecha;
+	}
+
+	/**
+	 * Set ngalestado
+	 *
+	 * @param integer $ngalestado
+	 * @return Galeria
+	 */
+	public function setNgalestado($ngalestado) {
+		$this->ngalestado = $ngalestado;
+
+		return $this;
+	}
+
+	/**
+	 * Get ngalestado
+	 *
+	 * @return integer
+	 */
+	public function getNgalestado() {
+		return $this->ngalestado;
+	}
+
+	/**
+	 * Set padre
+	 *
+	 * @param \Sistema\Entity\Galeria $padre
+	 * @return Galeria
+	 */
+	public function setPadre(\Sistema\Entity\Galeria $padre = null) {
+		$this->padre = $padre;
+
+		return $this;
+	}
+
+	/**
+	 * Get padre
+	 *
+	 * @return \Sistema\Entity\Galeria
+	 */
+	public function getPadre() {
+		return $this->padre;
+	}
+
+	/**
+	 * Add hijos
+	 *
+	 * @param \Sistema\Entity\Galeria $hijos
+	 * @return Galeria
+	 */
+	public function addHijo(\Sistema\Entity\Galeria $hijos) {
+		$this->hijos[] = $hijos;
+
+		return $this;
+	}
+
+	/**
+	 * Remove hijos
+	 *
+	 * @param \Sistema\Entity\Galeria $hijos
+	 */
+	public function removeHijo(\Sistema\Entity\Galeria $hijos) {
+		$this->hijos->removeElement($hijos);
+	}
+
+	/**
+	 * Get hijos
+	 *
+	 * @return \Doctrine\Common\Collections\Collection
+	 */
+	public function getHijos() {
+		return $this->hijos;
+	}
+
+	/**
+	 * Add imagengalerias
+	 *
+	 * @param \Sistema\Entity\Imagengaleria $imagengalerias
+	 * @return Galeria
+	 */
+	public function addImagengaleria(\Sistema\Entity\Imagengaleria $imagengalerias) {
+		$this->imagengalerias[] = $imagengalerias;
+
+		return $this;
+	}
+
+	/**
+	 * Remove imagengalerias
+	 *
+	 * @param \Sistema\Entity\Imagengaleria $imagengalerias
+	 */
+	public function removeImagengaleria(\Sistema\Entity\Imagengaleria $imagengalerias) {
+		$this->imagengalerias->removeElement($imagengalerias);
+	}
+
+	/**
+	 * Get imagengalerias
+	 *
+	 * @return \Doctrine\Common\Collections\Collection
+	 */
+	public function getImagengalerias() {
+		return $this->imagengalerias;
+	}
+}

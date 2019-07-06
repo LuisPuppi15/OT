@@ -1,0 +1,118 @@
+@import 'parametros.scss';
+@import 'mixins.scss';
+
+[data-componente~="tabla-mantenedor"]{
+	.tabla{
+		.cnt-tabla{
+			margin: 10px 0px 0px 0px;
+			table{
+				.bootstrap-select{
+					float: right;
+				}
+				input[type="text"]{
+					font-size: 12px;
+					height: 28px;
+					max-width: 150px;
+				}
+				tr{
+					th{
+						font-family: $font-1;
+						font-size: 14px;
+						color: $color-2;
+						vertical-align: middle;
+					}
+					td{
+						font-family: $font-2;
+						font-size: 12px;
+						color: $color-2;
+						vertical-align: middle;
+					}
+				}
+				tr.opciones{
+					border-top: 1px solid $bd-color-1;
+					border-bottom: 1px solid $bd-color-1;
+					td:first-child{
+						padding-right: 0px;
+					}
+					td{
+						vertical-align: middle;
+						.titulo{
+							margin: 0;
+							font-family: $font-2;
+							font-size: 14px;
+							color: $color-1;
+						}
+						select[name="selector-items"]{
+							height: 30px;
+							padding: 3px 8px;
+							font-size: 12px;
+						}
+						.btn-accion{
+							float: right;
+						}
+					}
+					td.icono{
+						text-align: center;
+						font-size: 15px;
+					}
+				}
+				tr.campos-busqueda{
+					td{
+						vertical-align: middle;
+					}
+				}
+				tr.cabecera{
+					th:first-child{
+						width: 40px;
+					}
+					th{
+						border-top: 1px solid $bd-color-1;
+					}
+				}
+				tr.item{
+					cursor: pointer;
+					td:first-child{
+						text-align: center;
+						padding-right: 0px;
+					}
+					td{
+						.fa{
+							font-size: 16px;
+						}
+						.habilitado{
+							color: $ind-success;
+						}
+						.deshabilitado{
+							color: $ind-error;
+						}
+					}
+				}
+			}
+		}
+	}
+	.tabla-items{
+		tr.item{
+			td{
+				border: 1px solid transparent;
+				@include transition-min(border-color background-color, 0.3s);
+			}
+		}
+		&.tabla-habilitada{
+			tr.item{
+				border-color: $bk-color-1;
+				cursor: move !important;
+				td{
+					background-color: #FFF;
+					border-top-color: $ind-success;
+					border-bottom-color: $ind-success;
+					&:first-child{
+						border-left-color: $ind-success;
+					}
+					&:last-child{
+						border-right-color: $ind-success;
+					}
+				}
+			}
+		}
+	}
+}

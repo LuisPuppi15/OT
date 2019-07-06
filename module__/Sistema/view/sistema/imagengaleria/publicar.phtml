@@ -1,0 +1,33 @@
+<div class="componente" data-componente="modal" data-modal-nombre="modal-post" data-modal-width="400" data-modal-title="Publicar">
+	<div class="marco">
+		<div class="componente" data-componente="formulario" data-formulario-nombre="formulario">
+			<?php
+			$form = $this->form;
+			$form->setAttribute('data-ruta', $this->url($this->ruta, array('action' => 'publicar', 'parametros' => $imagengaleria->getNimagalcodigo())));
+
+			echo $this->form()->openTag($form);
+			?>
+			<div class="modal-body">
+				<div class="alert alert-warning" role="alert">
+					¿Está seguro de publicar el item: <?php echo $imagengaleria->getCimagaltitulo(); ?>?
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default btn-modal cancelar" data-dismiss="modal">Cancelar</button>
+					<?php
+					// guardar
+					$button = $form->get('enviar');
+					$button->setOptions(array(
+						'column-size' => 'sm-10 col-sm-offset-2',
+						));
+					$button->setAttributes(array(
+						'type' => 'submit',
+						'class' => 'btn btn-modal enviar',
+						));
+					echo $this->formButton($button);
+					?>
+				</div>
+			</div>
+			<?php echo $this->form()->closeTag($form); ?>
+		</div>
+	</div>
+</div>

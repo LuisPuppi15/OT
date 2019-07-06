@@ -1,0 +1,32 @@
+@import 'parametros.scss';
+@import 'mixins.scss';
+
+[data-componente~="perusuario-accesos"]{
+	position: relative;
+	.btn-form-adc{
+		position: absolute;
+		top: 15px;
+		right: 40px;
+		padding: 6px 10px 4px 10px;
+		background-color: #FFF;
+		border: none;
+		text-shadow: none;
+		border: 1px solid #DDD;
+		.fa{
+			font-size: 14px;
+			text-shadow: rgba(0,0,0,.01) 0 0 1px;
+			color: $color-2;
+		}
+		&:hover{
+			background-color: $ind-color-4;
+			border-color: transparent;
+			.fa{
+				color: #FFF,
+			}
+		}
+		&:focus{
+			outline: none;
+			@extend .btn-form-adc:hover;
+		}
+	}
+}

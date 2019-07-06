@@ -1,0 +1,64 @@
+<?php echo $this->doctype(); ?>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<?php echo $this->headTitle('.:: Administrador de contenidos ::.') ?>
+	<?php echo $this->headMeta()
+	->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
+	->appendName('viewport', 'width=device-width, initial-scale=1');
+
+	$this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'));
+
+	$estilos = array(
+		'jquery-ui'=>'/lib/jquery-ui/jquery-ui.min.css',
+		'bootstrap'=>'/lib/bootstrap/css/bootstrap.min.css',
+		'bootstrap-datepicker'=>'/lib/bootstrap-datepicker/css/datepicker3.css',
+		'bootstrap-select'=>'/lib/bootstrap-select/css/bootstrap-select.min.css',
+		'bootstrap-validator'=>'/lib/bootstrap-validator/dist/css/bootstrapValidator.min.css',
+		'bootstrap-fileinput'=>'/lib/bootstrap-fileinput/css/fileinput.min.css',
+		'font-awesome'=>'/lib/font-awesome/css/font-awesome.min.css',
+		'js-tree'=>'/lib/js-tree/themes/proton/style.min.css',
+		'layout-sistema'=>'/css/layout-sistema.css',
+		'tabla-mantenedor'=>'/css/tabla-mantenedor.css',
+		'lista-mantenedor'=>'/css/lista-mantenedor.css',
+		'modal'=>'/css/modal.css',
+		'formulario'=>'/css/formulario.css',
+		'arbol'=>'/css/arbol.css',
+		'perusuario-accesos'=>'/css/perusuario-accesos.css',
+		'my-elementos'=>'/css/my-elementos.css',
+		'my-bootstrap'=>'/css/my-bootstrap.css',
+		'my-jquery-ui'=>'/css/my-jquery-ui.css',
+		'my-ckeditor'=>'/css/my-ckeditor.css',
+		);
+
+	foreach ($estilos as $key => $value) {
+		$this->headLink()->appendStylesheet($this->basePath().$value);
+	}
+
+	$fonts = array(
+		'google-fonts-1'=>'http://fonts.googleapis.com/css?family=Gudea:400,700',
+		'google-fonts-2'=>'http://fonts.googleapis.com/css?family=Open+Sans:700,400,600',
+		);
+
+	foreach ($fonts as $key => $font) {
+		$this->headLink()->appendStylesheet($font);
+	}
+
+	echo $this->headLink();
+
+	$require = array(
+		'src'=>'/lib/require/require.min.js',
+		'attrs'=>array('data-main'=> $this->basePath().'/js/app'),
+		);
+
+	$this->headScript()->appendFile($this->basePath().$require['src'], 'text/javascript', $require['attrs']);
+
+	$this->headScript()->setAllowArbitraryAttributes(true);
+	echo $this->headScript();
+	?>
+</head>
+<body>
+	<div id="base-path"><?php echo $this->basePath() ?></div>
+	<?php echo $this->content; ?>
+</body>
+</html>

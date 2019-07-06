@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAIC,iCAAM;EACL,MAAM,EAAE,IAAI;EACZ,gBAAgB,EAAE,IAAI;EACtB,wCAAK;IACJ,MAAM,EAAE,CAAC;EAEV,mDAAiB;IAChB,KAAK,EAAE,IAAI;IACX,MAAM,EAAE,iBAA0B;IAClC,gBAAgB,ECsCD,OAAO;EDpCvB,yDAAuB;IACtB,gBAAgB,EAAE,OAAsB",
+"sources": ["modal.scss","parametros.scss"],
+"names": [],
+"file": "modal.css"
+}

@@ -1,0 +1,88 @@
+@import 'parametros.scss';
+@import 'mixins.scss';
+
+.ui-widget{
+	font-family: $font-2;
+	button{
+		font-size: 11px;
+	}
+	input{
+		font-family: $font-2;
+		font-size: 12px;
+	}
+	textarea{
+		font-family: $font-2;
+		font-size: 12px;
+	}
+	small{
+		font-size: 12px;
+	}
+}
+
+.ui-widget-header{
+	background: $bk-color-6;
+	border: none;
+	.ui-dialog-title{
+		font-size: 12px;
+		font-family: $font-2;
+	}
+	.ui-dialog-titlebar-close{
+		background: none;
+		border: none;
+		.ui-icon-closethick{
+			opacity: 0;
+		}
+		.btn-close{
+			display: block;
+			width: 18px;
+			color: #FFF * 0.9;
+			font-size: 18px;
+			line-height: 16px;
+		}
+	}
+	.ui-dialog-titlebar-close:hover{
+		.btn-close{
+			color: #FFF;
+		}
+	}
+}
+
+.ui-dialog.ui-widget-content{
+	padding: 0;
+}
+
+.ui-dialog{
+	overflow: visible;
+	border: none;
+	@include shadow(0px, 1px, 8px, -1px, #747474);
+	.ui-dialog-content{
+		padding: 0;
+		background-color: $bk-color-3;
+	}
+	.ui-dialog-titlebar{
+		padding: 8px 15px;
+	}
+	>.dialog{
+		overflow: visible;
+	}
+}
+
+.ui-corner-all{
+	@include border-radius(0px, 0px, 0px, 0px);
+}
+
+.ui-widget-overlay{
+	background: #666;
+	opacity: 0.5;
+}
+
+.ui-tooltip{
+	// padding: 6px 6px;
+	font-family: $font-2;
+	font-size: 12px;
+	color: #FFF;
+	border-color: transparent;
+	background: #000;
+	box-shadow: none;
+	font-weight: bold;
+}

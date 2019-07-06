@@ -1,0 +1,50 @@
+html {
+  height: 100%; }
+  html body {
+    height: 100%;
+    background: radial-gradient(ellipse at center, #2EACB2 0%, #1F777C 100%); }
+    html body .formulario {
+      margin-top: 140px;
+      background-color: #FFF;
+      padding: 40px 50px 30px 50px;
+      font-family: "Gudea", sans-serif; }
+      html body .formulario > h1 {
+        margin: 0;
+        font-size: 14px;
+        color: #777; }
+      html body .formulario > h2 {
+        margin: 6px 0px 0px 0px;
+        font-size: 24px;
+        color: #555; }
+      html body .formulario form {
+        margin: 20px 0px 0px 0px; }
+        html body .formulario form .btn-submit {
+          border: none;
+          color: #555;
+          -webkit-transition-property: color;
+          -webkit-transition-duration: 0.3s;
+          transition-property: color;
+          transition-duration: 0.3s; }
+          html body .formulario form .btn-submit > .texto {
+            float: left;
+            font-weight: bold;
+            font-size: 13px; }
+          html body .formulario form .btn-submit > .fa {
+            float: right;
+            margin: 1px 0px 0px 4px;
+            font-size: 18px; }
+          html body .formulario form .btn-submit:hover {
+            background-color: #FFF;
+            color: #19A9D5; }
+          html body .formulario form .btn-submit:active {
+            background-color: #fff;
+            box-shadow: none; }
+          html body .formulario form .btn-submit:focus {
+            background-color: #fff; }
+        html body .formulario form .mensaje-error {
+          margin: 4px 0px 0px 0px;
+          font-weight: bold;
+          color: #B56866;
+          font-size: 14px; }
+
+/*# sourceMappingURL=login.css.map */

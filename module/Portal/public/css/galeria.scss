@@ -1,0 +1,54 @@
+@import 'mixins.scss';
+
+.cont-galeria{
+	.lista{
+		float: right;
+		width: 620px;
+		padding: 15px;
+		.galeria{
+			float: left;
+			clear: left;
+			width: 540px;
+			margin: 10px 0px 0px 30px;
+			padding: 0;
+			list-style: none;
+			li{
+				>a{
+					float: left;
+					.miniatura{
+						float: left;
+						width: 157px;
+						height: 162px;
+						margin: 0px 15px 15px 0px;
+						border: 6px solid #E1D9EC;
+						box-sizing: border-box;
+						opacity: 0.7;
+						@include transition-min(opacity, 0.7s);
+						&:hover{
+							opacity: 1;
+						}
+					}
+				}
+			}
+		}
+	}
+	.titulo-con-logo{
+		font-family: dinBold;
+		color: #3E3D40;
+		font-size: 18px;
+		margin: 0px;
+		padding: 10px 0px;
+		.fa{
+			float: left;
+			margin: 0px 10px 12px 0px;
+			padding: 7px 7px 7px 7px;
+			color: #D6E7E4;
+			background-color: #12A1A7;
+			@include border-radius(20px, 20px, 20px, 20px);
+		}
+		span{
+			float: left;
+			padding: 7px 0px 0px 0px;
+		}
+	}
+}

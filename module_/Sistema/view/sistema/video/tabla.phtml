@@ -1,0 +1,36 @@
+<?php
+$index = 0;
+foreach ($videos as $key => $video) {
+	?>
+	<tr class="item" data-id="<?php echo $video->getNvidcodigo() ?>">
+		<?php
+		$cvidtitulo = $video->getCvidtitulo();
+		$dvidfechapublico = $video->getDvidfechapublico();
+		$dvidfechapublico = ($dvidfechapublico) ? $dvidfechapublico->format('d-m-Y') : '';
+		$cvidcodigo = $video->getCvidcodigo();
+
+		switch ($video->getNvidestado()) {
+			case '1':
+			$nvidestado='No publicado';
+			break;
+
+			case '2':
+			$nvidestado='Publicado';
+			break;
+		}
+		?>
+		<td>
+			<label class="my-radio">
+				<input type="radio" name="selector" id="">
+				<i class="fa fa-circle-thin"></i>
+				<i class="fa fa-dot-circle-o"></i>
+			</label>
+		</td>
+		<td><?php echo $cvidtitulo ?></td>
+		<td><?php echo $dvidfechapublico ?></td>
+		<td><?php echo $nvidestado ?></td>
+		<td><a href="https://www.youtube.com/watch?v=<?php echo $cvidcodigo ?>" target="_blank">Ver</a></td>
+	</tr>
+	<?php
+}
+?>

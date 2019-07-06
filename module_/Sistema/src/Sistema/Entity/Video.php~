@@ -1,0 +1,73 @@
+<?php
+
+namespace Sistema\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Video
+ *
+ * @ORM\Table(name="video")
+ * @ORM\Entity(repositoryClass="Sistema\Repository\VideoRepository")
+ */
+class Video {
+	/**
+	 * @var integer
+	 *
+	 * @ORM\Column(name="nvidcodigo", type="integer", nullable=false)
+	 * @ORM\Id
+	 * @ORM\GeneratedValue(strategy="SEQUENCE")
+	 * @ORM\SequenceGenerator(sequenceName="video_nvidcodigo_seq", allocationSize=1, initialValue=1)
+	 */
+	private $nvidcodigo;
+
+	/**
+	 * @var string
+	 *
+	 * @ORM\Column(name="cvidjerarquia", type="string", length=10, nullable=false)
+	 */
+	private $cvidjerarquia;
+
+	/**
+	 * @var \DateTime
+	 *
+	 * @ORM\Column(name="dvidfechapublico", type="date", nullable=true)
+	 */
+	private $dvidfechapublico;
+
+	/**
+	 * @var string
+	 *
+	 * @ORM\Column(name="cvidcodigo", type="string", length=50, nullable=false)
+	 */
+	private $cvidcodigo;
+
+	/**
+	 * @var string
+	 *
+	 * @ORM\Column(name="cvidtitulo", type="string", length=500, nullable=false)
+	 */
+	private $cvidtitulo;
+
+	/**
+	 * @var string
+	 *
+	 * @ORM\Column(name="cviddescripcion", type="string", length=1000, nullable=true)
+	 */
+	private $cviddescripcion;
+
+	/**
+	 * @var \DateTime
+	 *
+	 * @ORM\Column(name="dvidfechareg", type="date", nullable=false)
+	 */
+	private $dvidfechareg;
+
+	/**
+	 * @var integer
+	 *
+	 * @ORM\Column(name="nvidestado", type="integer", nullable=false)
+	 */
+	private $nvidestado;
+
+}

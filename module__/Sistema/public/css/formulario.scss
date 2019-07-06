@@ -1,0 +1,65 @@
+@import 'parametros.scss';
+@import 'mixins.scss';
+
+[data-componente~="formulario"]{
+	.file-group{
+		.input-mirror{
+			opacity: 0;
+			height: 0;
+			width: 0;
+			padding: 0;
+			margin: 0;
+		}
+		.form-control-feedback{
+			visibility: hidden;
+		}
+	}
+	.form-group {
+		.file-input{
+			.file-preview{
+				border-color: $bd-color-1;
+				@include border-radius(0px, 0px, 0px, 0px);
+				.file-preview-frame{
+					padding: 6px;
+					border: 1px solid $bd-color-2;
+					box-shadow: none;
+					&:hover{
+						@extend .file-preview-frame;
+					}
+				}
+				.file-preview-status{
+					font-family: $font-2;
+					color: $color-1;
+					font-size: 12px;
+					font-weight: 600;
+				}
+			}
+			.input-group{
+				.file-caption-name{
+					font-size: 12px;
+					font-weight: 600;
+				}
+				button:not(.btn-file){
+					height: 31px;
+					border-color: $bd-color-1;
+				}
+				.btn-file{
+					&:hover{
+						border-color: transparent;
+						border-left-color: #DDD;
+					}
+					input[type="file"]{
+						z-index: 10000;
+					}
+				}
+			}
+		}
+		.img-thumb{
+			>img{
+				width: 160px;
+				padding: 5px;
+				border: 1px solid $bd-color-2;
+			}
+		}
+	}
+}

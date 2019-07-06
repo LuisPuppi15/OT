@@ -1,0 +1,91 @@
+<div class="componente" data-componente="modal" data-modal-nombre="modal-post" data-modal-width="500" data-modal-title="Editar">
+	<div class="marco">
+		<div class="componente" data-componente="formulario" data-formulario-nombre="formulario">
+			<?php
+			$form = $this->form;
+			$form->setAttribute('data-ruta', $this->url($this->ruta, array('action' => 'editar', 'parametros' => $this->id)));
+
+			echo $this->form()->openTag($form);
+			?>
+			<div class="modal-body">
+				<?php
+				$layoutHorizontal = TwbBundle\Form\View\Helper\TwbBundleForm::LAYOUT_HORIZONTAL;
+
+				// titulo
+				$input = $form->get('titulo');
+				$input->setAttributes(array(
+					'data-bv-notempty'=> '',
+					));
+				$input->setOptions(array(
+					'column-size' => 'lg-10',
+					'label_attributes' => array(
+						'class' => 'col-lg-2',
+						),
+					'twb-layout' => $layoutHorizontal,
+					));
+				echo $this->formRow($input);
+
+				// direccion
+				$input = $form->get('direccion');
+				$input->setOptions(array(
+					'column-size' => 'lg-10',
+					'label_attributes' => array(
+						'class' => 'col-lg-2',
+						),
+					'twb-layout' => $layoutHorizontal,
+					));
+				echo $this->formRow($input);
+
+				// telefono
+				$input = $form->get('telefono');
+				$input->setOptions(array(
+					'column-size' => 'lg-4',
+					'label_attributes' => array(
+						'class' => 'col-lg-2',
+						),
+					'twb-layout' => $layoutHorizontal,
+					));
+				echo $this->formRow($input);
+
+				// anexo
+				$input = $form->get('anexo');
+				$input->setOptions(array(
+					'column-size' => 'lg-4',
+					'label_attributes' => array(
+						'class' => 'col-lg-2',
+						),
+					'twb-layout' => $layoutHorizontal,
+					));
+				echo $this->formRow($input);
+
+				// email
+				$input = $form->get('email');
+				$input->setOptions(array(
+					'column-size' => 'lg-8',
+					'label_attributes' => array(
+						'class' => 'col-lg-2',
+						),
+					'twb-layout' => $layoutHorizontal,
+					));
+				echo $this->formRow($input);
+				?>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default btn-modal cancelar" data-dismiss="modal">Cancelar</button>
+					<?php
+					// enviar
+					$button = $form->get('enviar');
+					$button->setOptions(array(
+						'column-size' => 'sm-10 col-sm-offset-2',
+						));
+					$button->setAttributes(array(
+						'type' => 'submit',
+						'class' => 'btn btn-modal enviar',
+						));
+					echo $this->formButton($button);
+					?>
+				</div>
+			</div>
+			<?php echo $this->form()->closeTag($form); ?>
+		</div>
+	</div>
+</div>

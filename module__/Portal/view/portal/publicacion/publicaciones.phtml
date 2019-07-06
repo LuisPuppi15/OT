@@ -1,0 +1,31 @@
+<?php $this->placeholder('contenido')->captureStart(); ?>
+<div class="cont-publicaciones">
+	<div class="sidebar">
+		<?php echo $this->partial('portal/sidebar.phtml') ?>
+	</div>
+	<div class="lista">
+		<h1 class="titulo-con-logo"><i class="fa fa-comment"></i><span>PUBLICACIONES</span></h1>
+		<ul class="publicaciones">
+			<?php
+			$base = $this->basePath().'/upload/pdf/';
+			foreach ($this->publicaciones as $publicacion) {
+				$ruta = $base.$publicacion->getCpubpdf();
+				?>
+				<li>
+					<div class="publicacion">
+						<a href="<?php echo $ruta ?>" target="_blank">
+							<img src="<?php echo $this->htImgUrl($publicacion->getCpubimagen(), 'publicacion') ?>" alt="" class="miniatura">
+						</a>
+						<div class="texto">
+							<div class="titulo"><?php echo $publicacion->getCpubtitulo() ?></div>
+							<div class="anio"><strong>Año: </strong><?php echo $publicacion->getCpubanio() ?></div>
+						</div>
+					</div>
+				</li>
+				<?php
+			}
+			?>
+		</ul>
+	</div>
+</div>
+<?php $this->placeholder('contenido')->captureEnd(); ?>

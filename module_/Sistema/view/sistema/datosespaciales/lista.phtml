@@ -1,0 +1,33 @@
+<ul class="lista-items" data-ruta-orden="<?php echo $this->url($this->ruta, array('action' => 'ordenar', 'parametros' => ':parametros')) ?>">
+	<?php
+	$index = 0;
+	foreach ($datosespacialess as $key => $datosespaciales) {
+		?>
+		<li class="item" data-id="<?php echo $datosespaciales->getNdatespcodigo() ?>">
+			<?php
+			$cdatespcnombre = $datosespaciales->getCdatespnombre();
+			$ndatespestado = $datosespaciales->getNdatespestado();
+			?>
+			<label class="my-radio">
+				<input type="radio" name="selector">
+				<i class="fa fa-circle-thin"></i>
+				<i class="fa fa-dot-circle-o"></i>
+				<div class="titulo"><?php echo $cdatespcnombre ?></div>
+			</label>
+			<hr>
+			<?php if ($ndatespestado == 1): ?>
+				<div class="campo-compuesto">
+					<i class="fa fa-unlock"></i>
+					<div class="texto">No publicado</div>
+				</div>
+			<?php elseif($ndatespestado == 2): ?>
+				<div class="campo-compuesto">
+					<i class="fa fa-unlock-alt"></i>
+					<div class="texto">Publicado</div>
+				</div>
+			<?php endif ?>
+		</li>
+		<?php
+	}
+	?>
+</ul>

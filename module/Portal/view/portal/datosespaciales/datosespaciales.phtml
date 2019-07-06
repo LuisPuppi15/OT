@@ -1,0 +1,55 @@
+<?php $this->placeholder('contenido')->captureStart(); ?>
+<div class="cont-datosespaciales">
+	<div class="sidebar">
+		<?php echo $this->partial('portal/sidebar.phtml') ?>
+	</div>
+	<div class="detalle">
+		<div role="tabpanel">
+			<!-- Nav tabs -->
+			<ul class="nav nav-tabs" role="tablist">
+				<?php
+				$cont = 0;
+				foreach ($datosespacialess as $datosespaciales) {
+					$ndatespcodigo = $datosespaciales->getNdatespcodigo();
+					$cdatespnombre = $datosespaciales->getCdatespnombre();
+					$class = '';
+
+					if ($cont == 0) {
+						$class = 'active';
+					}
+					?>
+					<li role="presentation" class="<?php echo $class ?>">
+						<a href="#<?php echo $ndatespcodigo ?>" aria-controls="<?php echo $ndatespcodigo ?>" role="tab" data-toggle="tab"><?php echo $cdatespnombre ?></a>
+					</li>
+					<?php
+					$cont++;
+				}
+				?>
+			</ul>
+
+			<!-- Tab panes -->
+			<div class="tab-content">
+				<?php
+				$cont = 0;
+				foreach ($datosespacialess as $datosespaciales) {
+					$ndatespcodigo = $datosespaciales->getNdatespcodigo();
+					$cdatespnombre = $datosespaciales->getCdatespnombre();
+					$cdatespcontenido = $datosespaciales->getCdatespcontenido();
+					$class = '';
+
+					if ($cont == 0) {
+						$class = 'active';
+					}
+					?>
+					<div role="tabpanel" class="tab-pane <?php echo $class ?>" id="<?php echo $ndatespcodigo ?>">
+						<?php echo $cdatespcontenido ?>
+					</div>
+					<?php
+					$cont++;
+				}
+				?>
+			</div>
+		</div>
+	</div>
+</div>
+<?php $this->placeholder('contenido')->captureEnd(); ?>

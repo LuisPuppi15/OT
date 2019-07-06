@@ -1,0 +1,46 @@
+<ul class="lista-items">
+	<?php
+	$index = 0;
+	foreach ($publicacions as $key => $publicacion) {
+		?>
+		<li class="item" data-id="<?php echo $publicacion->getNpubcodigo() ?>">
+			<?php
+			$cpubtitulo = $publicacion->getCpubtitulo();
+			$cpubimagen = $publicacion->getCpubimagen();
+			$cpubpdf = $publicacion->getCpubpdf();
+			$npubestado = $publicacion->getNpubestado();
+			?>
+			<label class="my-radio">
+				<input type="radio" name="selector">
+				<i class="fa fa-circle-thin"></i>
+				<i class="fa fa-dot-circle-o"></i>
+				<div class="titulo"><?php echo $cpubtitulo ?></div>
+			</label>
+			<?php if ($cpubimagen != ''): ?>
+				<div class="campo-img">
+					<img src="<?php echo $this->htImgUrl($cpubimagen, 'estandar') ?>" alt="">
+				</div>
+			<?php endif ?>
+			<hr>
+			<?php if ($cpubpdf != ''): ?>
+				<div class="campo-compuesto">
+					<i class="fa fa-external-link"></i>
+					<a target="_blank" href="<?php echo $this->basePath().'/upload/pdf/'.$cpubpdf ?>">Ver</a>
+				</div>
+			<?php endif ?>
+			<?php if ($npubestado == 1): ?>
+				<div class="campo-compuesto">
+					<i class="fa fa-unlock"></i>
+					<div class="texto">No publicado</div>
+				</div>
+			<?php elseif($npubestado == 2): ?>
+				<div class="campo-compuesto">
+					<i class="fa fa-unlock-alt"></i>
+					<div class="texto">Publicado</div>
+				</div>
+			<?php endif ?>
+		</li>
+		<?php
+	}
+	?>
+</ul>

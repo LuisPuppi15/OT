@@ -1,0 +1,83 @@
+<?php $this->placeholder('contenido')->captureStart(); ?>
+<div class="cont-portada">
+	<div class="row">
+		<div class="col-lg-12 ">
+			<?php echo $this->partial('portal/menu-lateral.phtml') ?>
+			<div class="slider">
+				<ul class="bxslider">
+					<?php
+					$base = $this->basePath().'/upload/img/';
+
+					foreach ($this->sliders as $slider) {
+						$src = $base.$slider->getCslirutimgfull();
+						$title = '<h1>'.$slider->getCslititulo().'</h1><p>'.$slider->getCslidescripcion().'</p>';
+						?>
+						<li><img src="<?php echo $src ?>" title="<?php echo $title ?>"/></li>
+						<?php
+					}
+					?>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-7 noticias">
+			<h1 class="titulo-con-logo"><i class="fa fa-volume-up"></i><span>NOTICIAS</span></h1>
+			<ul>
+				<?php foreach ($this->noticias as $noticia): ?>
+					<li>
+						<div class="noticia">
+							<img src="<?php echo $this->htImgUrl($noticia->getCnotrutaimgfull(), 'estandar') ?>" alt="" class="miniatura">
+							<div class="texto">
+								<a href="<?php echo $this->url('portal/noticia', array('codigo' => $noticia->getNnotcodigo())) ?>"><h1 class="titulo"><?php echo $noticia->getCnottitulo() ?></h1></a>
+								<p><?php echo $noticia->getCnotpietitulo() ?></p>
+							</div>
+						</div>
+					</li>
+				<?php endforeach ?>
+			</ul>
+			<div class="cont-mas-noticias">
+				<a href="<?php echo $this->url('portal/noticias') ?>" class="mas-noticias">Más noticias</a>
+			</div>
+			<div class="cont-url-portal">
+				<a href="<?php echo $urlportal->getCurlporurl() ?>" target="_blank" class="url-portal">
+					<?php echo $urlportal->getCurlpornombre() ?>
+				</a>
+			</div>
+		</div>
+		<div class="col-lg-5 videos">
+			<h1 class="titulo-con-logo"><i class="fa fa-play"></i><span>VIDEOS</span></h1>
+			<?php
+			$cont = 0;
+			foreach ($this->videos as $video) {
+				if ($cont == 0) {
+					?>
+					<iframe width="390" height="250" src="//www.youtube.com/embed/<?php echo $video->getCvidcodigo() ?>" frameborder="0" allowfullscreen></iframe>
+					<div class="texto">
+						<h1>► <?php echo $video->getCvidtitulo() ?></h1>
+						<p><?php echo $video->getCviddescripcion() ?></p>
+					</div>
+					<ul class="enlaces">
+						<?php
+					} else {
+						?>
+						<li><a href="https://www.youtube.com/embed/<?php echo $video->getCvidcodigo() ?>" target="_blank">→ <?php echo $video->getCvidtitulo() ?></a></li>
+						<?php
+					}
+
+					$cont++;
+
+					if ($cont == count($videos)) {
+						?>
+					</ul>
+					<?php
+				}
+			}
+			?>
+			<div class="cont-mas-videos">
+				<a href="https://www.youtube.com/user/ordenamiento1001?feature=watch" target="_blank" class="mas-videos">Más videos</a>
+			</div>
+		</div>
+	</div>
+</div>
+<?php $this->placeholder('contenido')->captureEnd(); ?>

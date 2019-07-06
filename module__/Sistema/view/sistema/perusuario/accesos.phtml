@@ -1,0 +1,104 @@
+	<div class="componente" data-componente="modal" data-modal-nombre="modal-post" data-modal-width="400" data-modal-title="Asignar accesos">
+		<div class="marco">
+			<div class="componente" data-componente="formulario" data-formulario-nombre="formulario">
+				<div class="componente" data-componente="perusuario-accesos" data-perusuario-accesos-nombre="perusuario-accesos">
+					<?php
+					$form = $this->form;
+					$form->setAttribute('data-ruta', $this->url($this->ruta, array('action' => 'accesos', 'parametros' => $this->id)));
+
+					echo $this->form()->openTag($form);
+					?>
+					<div class="modal-body">
+						<?php
+						$rol = $perusuario->getRol();
+						if ($rol) {
+							if ($rol->getNrolestado()) {
+								$ruta=$this->url($this->ruta, array('action'=>'resetearAccesos', 'parametros' => $this->id));
+								?>
+								<button type="button" class="btn btn-form-adc btn-resetear mensaje-ayuda" title="Reiniciar permisos" data-ruta="<?php echo $ruta ?>">
+									<i class=" fa fa-retweet"></i>
+								</button>
+								<div class="control-alterno dialog pre alerta">
+									<div class="componente" data-componente="modal" data-modal-nombre="modal-pre" data-modal-width="400" data-modal-title="Advertencia">
+										<div class="marco">
+											<div class="modal-body">
+												<div id="alerta-seleccion" class="alert alert-danger" role="alert">
+													¿Está seguro de realizar esta acción? Solo mantendrá los permisos registrados para el rol: <?php echo '"'.$rol->getCrolnombre().'"' ?>
+												</div>
+												<div class="modal-footer">
+													<button type="button" class="btn btn-default btn-modal cancelar" data-dismiss="modal">Cancelar</button>
+													<button type="submit" class="btn btn-default btn-modal llamar">Aceptar</button>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<?php
+							}
+						}
+						?>
+						<div class="componente" data-componente="arbol">
+							<div class="tree">
+								<?php
+								mostrarFormRecursivo($form, $this, $this->controls);
+
+								function mostrarFormRecursivo($formulario, $view, $controls) {
+									?><ul><?php
+									foreach ($controls as $control) {
+										$nctrcodigo = $control->getNctrcodigo();
+										$element = $formulario->get($nctrcodigo);
+										$attributes = $element->getAttributes();
+										$data = $attributes['data-jstree'];
+										?>
+										<li data-jstree='<?php echo $data ?>' data-value="<?php echo $nctrcodigo ?>">
+											<span class="semi-activado"><i class="fa fa-square"></i></span>
+											<span class="desactivado"><i class="fa fa-square-o"></i></span>
+											<span class="activado"><i class="fa fa-check-square-o"></i></span>
+											<span class="texto"><?php echo $control->getCctrnombre() ?></span>
+											<?php
+											if ($control->getHijos()->count() > 0) {
+												mostrarFormRecursivo($formulario, $view, $view->control_hijos_helper($nctrcodigo));
+											}
+											?>
+										</li>
+										<?php
+									}
+									?></ul><?php
+								}
+								?>
+							</div>
+							<div class="form-controls">
+								<?php
+								mostrarControlsRecursivo($form, $this, $this->controls);
+
+								function mostrarControlsRecursivo($formulario, $view, $controls){
+									foreach ($controls as $control) {
+										$nctrcodigo = $control->getNctrcodigo();
+										$element = $formulario->get($nctrcodigo);
+										echo $view->formRow($element);
+
+										if ($control->getHijos()->count() > 0) {
+											mostrarControlsRecursivo($formulario, $view, $view->control_hijos_helper($nctrcodigo));
+										}
+									}
+								}
+								?>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default btn-modal cancelar" data-dismiss="modal" autofocus>Cancelar</button>
+							<?php
+							// enviar
+							$button = $form->get('enviar');
+							$button->setOptions(array(
+								'column-size' => 'sm-10 col-sm-offset-2',
+								));
+							echo $this->formButton($button);
+							?>
+						</div>
+					</div>
+					<?php echo $this->form()->closeTag($form); ?>
+				</div>
+			</div>
+		</div>
+	</div>

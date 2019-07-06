@@ -1,0 +1,35 @@
+<?php
+$index = 0;
+foreach ($perusuarios as $key => $perusuario) {
+	?>
+	<tr class="item" data-id="<?php echo $perusuario->getNperusucodigo() ?>">
+		<td>
+			<label class="my-radio">
+				<input type="radio" name="selector" id="">
+				<i class="fa fa-circle-thin"></i>
+				<i class="fa fa-dot-circle-o"></i>
+			</label>
+		</td>
+		<td><?php echo $perusuario->getPersona()->getNperdni() ?></td>
+		<td><?php echo $perusuario->getPersona()->getCpernombre().' '.$perusuario->getPersona()->getCperapellidos() ?></td>
+		<td><?php echo $perusuario->getCperusuname() ?></td>
+		<td><?php echo $perusuario->getRol() ?></td>
+		<td class="center">
+			<?php
+			$nperusuestado = $perusuario->getNperusuestado();
+
+			if ($nperusuestado == 1)	 {
+				?>
+				<i class="fa fa-check habilitado"></i>
+				<?php
+			} elseif ($nperusuestado == 2) {
+				?>
+				<i class="fa fa-times deshabilitado"></i>
+				<?php
+			}
+			?>
+		</td>
+	</tr>
+	<?php
+}
+?>

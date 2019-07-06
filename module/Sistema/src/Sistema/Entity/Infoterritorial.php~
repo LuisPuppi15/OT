@@ -1,0 +1,45 @@
+<?php
+
+namespace Sistema\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Infoterritorial
+ *
+ * @ORM\Table(name="infoterritorial")
+ * @ORM\Entity(repositoryClass="Sistema\Repository\InfoterritorialRepository")
+ */
+class Infoterritorial {
+	/**
+	 * @var integer
+	 *
+	 * @ORM\Column(name="ninftercodigo", type="integer", nullable=false)
+	 * @ORM\Id
+	 * @ORM\GeneratedValue(strategy="SEQUENCE")
+	 * @ORM\SequenceGenerator(sequenceName="infoterritorial_ninftercodigo_seq", allocationSize=1, initialValue=1)
+	 */
+	private $ninftercodigo;
+
+	/**
+	 * @var string
+	 *
+	 * @ORM\Column(name="cinfternombre", type="string", length=100, nullable=false)
+	 */
+	private $cinfternombre;
+
+	/**
+	 * @var string
+	 *
+	 * @ORM\Column(name="cinfterurl", type="string", length=500, nullable=false)
+	 */
+	private $cinfterurl;
+
+	/**
+	 * @var integer
+	 *
+	 * @ORM\Column(name="ninfterestado", type="integer", nullable=false)
+	 */
+	private $ninfterestado;
+
+}

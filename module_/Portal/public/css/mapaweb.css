@@ -1,0 +1,25 @@
+.cont-mapaweb .detalle {
+  float: right;
+  width: 620px;
+  padding: 15px; }
+  .cont-mapaweb .detalle h2 {
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-family: dinBold; }
+  .cont-mapaweb .detalle .menus {
+    margin: 0px 0px 10px 0px;
+    padding: 0px 0px 0px 10px;
+    list-style: none;
+    list-style-position: inside; }
+    .cont-mapaweb .detalle .menus li a {
+      color: #000;
+      font-family: dinBold;
+      font-size: 13px; }
+      .cont-mapaweb .detalle .menus li a:hover {
+        text-decoration: none; }
+    .cont-mapaweb .detalle .menus li .menus {
+      list-style-type: square; }
+      .cont-mapaweb .detalle .menus li .menus li a {
+        font-family: dinRegular; }
+
+/*# sourceMappingURL=mapaweb.css.map */

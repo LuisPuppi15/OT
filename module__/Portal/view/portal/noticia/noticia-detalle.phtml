@@ -1,0 +1,13 @@
+<?php $this->placeholder('contenido')->captureStart(); ?>
+<div class="cont-noticia">
+	<div class="sidebar">
+		<?php echo $this->partial('portal/sidebar.phtml') ?>
+	</div>
+	<div class="detalle">
+		<h1 class="titulo-con-logo"><i class="fa fa-volume-up"></i><span>AMPLIACIÓN DE NOTICIA</span></h1>
+		<div class="ck-contenido">
+			<?php echo $detalle ?>
+		</div>
+	</div>
+</div>
+<?php $this->placeholder('contenido')->captureEnd(); ?>

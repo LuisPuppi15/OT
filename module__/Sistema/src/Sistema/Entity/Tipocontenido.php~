@@ -1,0 +1,50 @@
+<?php
+
+namespace Sistema\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Tipocontenido
+ *
+ * @ORM\Table(name="tipocontenido")
+ * @ORM\Entity(repositoryClass="Sistema\Repository\TipocontenidoRepository")
+ */
+class Tipocontenido {
+	/**
+	 * @var integer
+	 *
+	 * @ORM\Column(name="ntipconcodigo", type="integer", nullable=false)
+	 * @ORM\Id
+	 * @ORM\GeneratedValue(strategy="SEQUENCE")
+	 * @ORM\SequenceGenerator(sequenceName="tipocontenido_ntipconcodigo_seq", allocationSize=1, initialValue=1)
+	 */
+	private $ntipconcodigo;
+
+	/**
+	 * @var string
+	 *
+	 * @ORM\Column(name="ctipconnombre", type="string", length=150, nullable=false)
+	 */
+	private $ctipconnombre;
+
+	/**
+	 * @var string
+	 *
+	 * @ORM\Column(name="ctipcondescripcion", type="string", length=500, nullable=true)
+	 */
+	private $ctipcondescripcion;
+
+	/**
+	 * @var integer
+	 *
+	 * @ORM\Column(name="ntipconestado", type="integer", nullable=false)
+	 */
+	private $ntipconestado;
+
+	/**
+	 * @ORM\OneToMany(targetEntity="Sistema\Entity\Menu", mappedBy="tipocontenido")
+	 */
+	protected $menus;
+
+}

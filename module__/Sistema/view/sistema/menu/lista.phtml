@@ -1,0 +1,63 @@
+<ul class="lista-items" data-ruta-orden="<?php echo $this->url($this->ruta, array('action' => 'ordenar', 'parametros' => ':parametros')) ?>">
+	<?php
+	$index = 0;
+	foreach ($menus as $key => $menu) {
+		?>
+		<li class="item" data-id="<?php echo $menu->getNmencodigo() ?>">
+			<?php
+			$cmennombre = $menu->getCmennombre();
+			$tipocontenido = ($menu->getTipocontenido()) ? $menu->getTipocontenido()->getCtipconnombre() : 'Ninguno';
+			$nivelmenu = ($menu->getNivelmenu()) ? $menu->getNivelmenu()->getCnivmennombre() : '';
+			$padre = ($menu->getPadre()) ? $menu->getPadre()->getCmennombre() : 'Ninguno';
+			$estado = $this->menu_estado_helper($menu->getNmencodigo());
+			?>
+			<label class="my-radio">
+				<input type="radio" name="selector">
+				<i class="fa fa-circle-thin"></i>
+				<i class="fa fa-dot-circle-o"></i>
+				<div class="titulo"><?php echo $cmennombre ?></div>
+			</label>
+			<div class="campo-icono">
+				<i class="fa fa-list"></i>
+			</div>
+			<hr>
+			<?php if ($tipocontenido != ''): ?>
+				<div class="campo-compuesto">
+					<i class="fa fa-file-text-o"></i>
+					<div class="texto">
+						<?php echo $tipocontenido ?>
+					</div>
+				</div>
+			<?php endif ?>
+			<?php if ($nivelmenu != ''): ?>
+				<div class="campo-compuesto">
+					<i class="fa fa-bars"></i>
+					<div class="texto">
+						<?php echo $nivelmenu ?>
+					</div>
+				</div>
+			<?php endif ?>
+			<?php if ($padre != ''): ?>
+				<div class="campo-compuesto">
+					<i class="fa fa-home"></i>
+					<div class="texto">
+						<?php echo $padre ?>
+					</div>
+				</div>
+			<?php endif ?>
+			<?php if ($estado == 1): ?>
+				<div class="campo-compuesto">
+					<i class="fa fa-unlock"></i>
+					<div class="texto">No publicado</div>
+				</div>
+			<?php elseif($estado == 2): ?>
+				<div class="campo-compuesto">
+					<i class="fa fa-unlock-alt"></i>
+					<div class="texto">Publicado</div>
+				</div>
+			<?php endif ?>
+		</li>
+		<?php
+	}
+	?>
+</ul>

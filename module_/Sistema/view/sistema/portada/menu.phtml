@@ -1,0 +1,72 @@
+<div class="row">
+	<div class="col-lg-2 col-md-2 col-sm-2 menu-interno">
+		<!-- Pestañas -->
+		<ul class="nav nav-pills nav-stacked">
+			<?php
+			foreach ($menus as $menu) {
+				$menuId = $menu->getNctrcodigo();
+				$cctrvalor = $menu->getCctrvalor();
+				$menuRuta = ($cctrvalor) ? $this->url(json_decode($cctrvalor)->ruta) : '';
+
+				$cantSubMenus = count($subMenus[$menuId]);
+
+				if ($cantSubMenus > 0) {
+					?>
+					<li class="desplegable">
+						<a href="#">
+							<button type="button" class="btn button-item" data-toggle="collapse" data-target="#<?php echo $menuId  ?>">
+								<i class="fa fa-chevron-right"></i>
+								<span class="texto"><?php echo $menu->getCctrnombre() ?></span>
+							</button>
+						</a>
+						<div id="<?php echo $menuId ?>" class="collapse in">
+							<?php
+							foreach ($subMenus[$menuId] as $subMenu) {
+								$subMenuId = $subMenu->getNctrcodigo();
+								$cctrvalor = $subMenu->getCctrvalor();
+								$subMenuRuta = ($cctrvalor) ? $this->url(json_decode($cctrvalor)->ruta) : '';
+								?>
+								<a href="#<?php echo $subMenuId ?>" class="subitem" role="tab" data-toggle="tab" data-ruta="<?php echo $subMenuRuta ?>"><?php echo $subMenu->getCctrnombre() ?></a>
+								<?php
+							}
+							?>
+						</div>
+					</li>
+					<?php
+				} else {
+					?>
+					<li>
+						<a href="#<?php  echo $menuId ?>" data-ruta="<?php echo $menuRuta ?>" class="link-item" role="tab" data-toggle="tab">
+							<i class="fa fa-circle-o"></i>
+							<span class="texto"><?php echo $menu->getCctrnombre(); ?></span>
+						</a>
+					</li>
+					<?php
+				}
+
+				?>
+				<?php
+			}
+			?>
+		</ul>
+	</div>
+	<!-- Contenidos -->
+	<div class="col-lg-10 col-md-10 col-sm-10 contenido">
+		<div class="tab-content">
+			<?php
+			foreach ($menus as $menu) {
+				$menuId = $menu->getNctrcodigo();
+				?>
+				<div class="tab-pane" id="<?php echo $menuId ?>"></div>
+				<?php
+				foreach ($subMenus[$menuId] as $subMenu) {
+					$subMenuId = $subMenu->getNctrcodigo();
+					?>
+					<div class="tab-pane" id="<?php echo $subMenuId ?>"></div>
+					<?php
+				}
+			}
+			?>
+		</div>
+	</div>
+</div>

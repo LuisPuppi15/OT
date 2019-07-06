@@ -1,0 +1,57 @@
+<ul class="lista-items">
+	<?php
+	$index = 0;
+	foreach ($noticias as $key => $noticia) {
+		?>
+		<li class="item" data-id="<?php echo $noticia->getNnotcodigo() ?>">
+			<?php
+			$cnottitulo = $noticia->getCnottitulo();
+			$cnotrutaimgfull = $noticia->getCnotrutaimgfull();
+			$dnotfecha = $noticia->getDnotfecha()->format('d-m-Y');
+			$cnotpietitulo = $noticia->getCnotpietitulo();
+			$nnotestado = $noticia->getNnotestado();
+			?>
+			<label class="my-radio">
+				<input type="radio" name="selector">
+				<i class="fa fa-circle-thin"></i>
+				<i class="fa fa-dot-circle-o"></i>
+				<div class="titulo"><?php echo $cnottitulo ?></div>
+			</label>
+			<?php if ($cnotrutaimgfull != ''): ?>
+				<div class="campo-img">
+					<img src="<?php echo $this->htImgUrl($cnotrutaimgfull, 'estandar') ?>" alt="">
+				</div>
+			<?php endif ?>
+			<hr>
+			<?php if ($dnotfecha != ''): ?>
+				<div class="campo-compuesto">
+					<i class="fa fa-calendar"></i>
+					<div class="texto">
+						<?php echo $dnotfecha ?>
+					</div>
+				</div>
+			<?php endif ?>
+			<?php if ($cnotpietitulo != ''): ?>
+				<div class="campo-compuesto">
+					<i class="fa fa-file-text-o"></i>
+					<div class="texto">
+						<?php echo $cnotpietitulo ?>
+					</div>
+				</div>
+			<?php endif ?>
+			<?php if ($nnotestado == 1): ?>
+				<div class="campo-compuesto">
+					<i class="fa fa-unlock"></i>
+					<div class="texto">No publicado</div>
+				</div>
+			<?php elseif($nnotestado == 2): ?>
+				<div class="campo-compuesto">
+					<i class="fa fa-unlock-alt"></i>
+					<div class="texto">Publicado</div>
+				</div>
+			<?php endif ?>
+		</li>
+		<?php
+	}
+	?>
+</ul>

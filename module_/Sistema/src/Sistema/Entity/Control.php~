@@ -1,0 +1,320 @@
+<?php
+
+namespace Sistema\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Control
+ *
+ * @ORM\Table(name="control", indexes={@ORM\Index(name="IDX_EDDB2C4BF7CF0C1F", columns={"nctrcodpadre"})})
+ * @ORM\Entity(repositoryClass="Sistema\Repository\ControlRepository")
+ */
+class Control {
+	/**
+	 * @var integer
+	 *
+	 * @ORM\Column(name="nctrcodigo", type="integer", nullable=false)
+	 * @ORM\Id
+	 * @ORM\GeneratedValue(strategy="SEQUENCE")
+	 * @ORM\SequenceGenerator(sequenceName="control_nctrcodigo_seq", allocationSize=1, initialValue=1)
+	 */
+	private $nctrcodigo;
+
+	/**
+	 * @var integer
+	 *
+	 * @ORM\Column(name="nctrtipo", type="integer", nullable=false)
+	 */
+	private $nctrtipo;
+
+	/**
+	 * @var string
+	 *
+	 * @ORM\Column(name="cctrjerarquia", type="string", length=20, nullable=false)
+	 */
+	private $cctrjerarquia;
+
+	/**
+	 * @var string
+	 *
+	 * @ORM\Column(name="cctrnombre", type="string", length=250, nullable=false)
+	 */
+	private $cctrnombre;
+
+	/**
+	 * @var string
+	 *
+	 * @ORM\Column(name="cctrvalor", type="string", length=250, nullable=true)
+	 */
+	private $cctrvalor;
+
+	/**
+	 * @var string
+	 *
+	 * @ORM\Column(name="nctrdescripcion", type="string", length=250, nullable=true)
+	 */
+	private $nctrdescripcion;
+
+	/**
+	 * @var integer
+	 *
+	 * @ORM\Column(name="nctrestado", type="integer", nullable=false)
+	 */
+	private $nctrestado;
+
+	/**
+	 * @var \Sistema\Entity\Control
+	 *
+	 * @ORM\ManyToOne(targetEntity="Sistema\Entity\Control")
+	 * @ORM\JoinColumns({
+	 *   @ORM\JoinColumn(name="nctrcodpadre", referencedColumnName="nctrcodigo")
+	 * })
+	 */
+	private $padre;
+
+	/**
+	 * @var \Sistema\Entity\Control
+	 *
+	 * @ORM\OneToMany(targetEntity="Sistema\Entity\Control", mappedBy="padre")
+	 */
+	protected $hijos;
+
+	/**
+	 * @var \Sistema\Entity\Rolcontrol
+	 *
+	 * @ORM\OneToMany(targetEntity="Sistema\Entity\Rolcontrol", mappedBy="control")
+	 */
+	protected $rolcontrols;
+
+	/**
+	 * @var  \Doctrine\Common\Collections\Collection
+	 *
+	 * @ORM\OneToMany(targetEntity="Sistema\Entity\Perusuacceso", mappedBy="control")
+	 */
+	protected $perusuaccesos;
+
+	/**
+	 * Constructor
+	 */
+	public function __construct() {
+		$this->hijos = new \Doctrine\Common\Collections\ArrayCollection();
+		$this->rolcontrols = new \Doctrine\Common\Collections\ArrayCollection();
+	}
+
+	/**
+	 * Get nctrcodigo
+	 *
+	 * @return integer
+	 */
+	public function getNctrcodigo() {
+		return $this->nctrcodigo;
+	}
+
+	/**
+	 * Set nctrtipo
+	 *
+	 * @param integer $nctrtipo
+	 * @return Control
+	 */
+	public function setNctrtipo($nctrtipo) {
+		$this->nctrtipo = $nctrtipo;
+
+		return $this;
+	}
+
+	/**
+	 * Get nctrtipo
+	 *
+	 * @return integer
+	 */
+	public function getNctrtipo() {
+		return $this->nctrtipo;
+	}
+
+	/**
+	 * Set cctrjerarquia
+	 *
+	 * @param string $cctrjerarquia
+	 * @return Control
+	 */
+	public function setCctrjerarquia($cctrjerarquia) {
+		$this->cctrjerarquia = $cctrjerarquia;
+
+		return $this;
+	}
+
+	/**
+	 * Get cctrjerarquia
+	 *
+	 * @return string
+	 */
+	public function getCctrjerarquia() {
+		return $this->cctrjerarquia;
+	}
+
+	/**
+	 * Set cctrnombre
+	 *
+	 * @param string $cctrnombre
+	 * @return Control
+	 */
+	public function setCctrnombre($cctrnombre) {
+		$this->cctrnombre = $cctrnombre;
+
+		return $this;
+	}
+
+	/**
+	 * Get cctrnombre
+	 *
+	 * @return string
+	 */
+	public function getCctrnombre() {
+		return $this->cctrnombre;
+	}
+
+	/**
+	 * Set cctrvalor
+	 *
+	 * @param string $cctrvalor
+	 * @return Control
+	 */
+	public function setCctrvalor($cctrvalor) {
+		$this->cctrvalor = $cctrvalor;
+
+		return $this;
+	}
+
+	/**
+	 * Get cctrvalor
+	 *
+	 * @return string
+	 */
+	public function getCctrvalor() {
+		return $this->cctrvalor;
+	}
+
+	/**
+	 * Set nctrdescripcion
+	 *
+	 * @param string $nctrdescripcion
+	 * @return Control
+	 */
+	public function setNctrdescripcion($nctrdescripcion) {
+		$this->nctrdescripcion = $nctrdescripcion;
+
+		return $this;
+	}
+
+	/**
+	 * Get nctrdescripcion
+	 *
+	 * @return string
+	 */
+	public function getNctrdescripcion() {
+		return $this->nctrdescripcion;
+	}
+
+	/**
+	 * Set nctrestado
+	 *
+	 * @param integer $nctrestado
+	 * @return Control
+	 */
+	public function setNctrestado($nctrestado) {
+		$this->nctrestado = $nctrestado;
+
+		return $this;
+	}
+
+	/**
+	 * Get nctrestado
+	 *
+	 * @return integer
+	 */
+	public function getNctrestado() {
+		return $this->nctrestado;
+	}
+
+	/**
+	 * Set padre
+	 *
+	 * @param \Sistema\Entity\Control $padre
+	 * @return Control
+	 */
+	public function setPadre(\Sistema\Entity\Control $padre = null) {
+		$this->padre = $padre;
+
+		return $this;
+	}
+
+	/**
+	 * Get padre
+	 *
+	 * @return \Sistema\Entity\Control
+	 */
+	public function getPadre() {
+		return $this->padre;
+	}
+
+	/**
+	 * Add hijos
+	 *
+	 * @param \Sistema\Entity\Control $hijos
+	 * @return Control
+	 */
+	public function addHijo(\Sistema\Entity\Control $hijos) {
+		$this->hijos[] = $hijos;
+
+		return $this;
+	}
+
+	/**
+	 * Remove hijos
+	 *
+	 * @param \Sistema\Entity\Control $hijos
+	 */
+	public function removeHijo(\Sistema\Entity\Control $hijos) {
+		$this->hijos->removeElement($hijos);
+	}
+
+	/**
+	 * Get hijos
+	 *
+	 * @return \Doctrine\Common\Collections\Collection
+	 */
+	public function getHijos() {
+		return $this->hijos;
+	}
+
+	/**
+	 * Add rolcontrols
+	 *
+	 * @param \Sistema\Entity\Rolcontrol $rolcontrols
+	 * @return Control
+	 */
+	public function addRolcontrol(\Sistema\Entity\Rolcontrol $rolcontrols) {
+		$this->rolcontrols[] = $rolcontrols;
+
+		return $this;
+	}
+
+	/**
+	 * Remove rolcontrols
+	 *
+	 * @param \Sistema\Entity\Rolcontrol $rolcontrols
+	 */
+	public function removeRolcontrol(\Sistema\Entity\Rolcontrol $rolcontrols) {
+		$this->rolcontrols->removeElement($rolcontrols);
+	}
+
+	/**
+	 * Get rolcontrols
+	 *
+	 * @return \Doctrine\Common\Collections\Collection
+	 */
+	public function getRolcontrols() {
+		return $this->rolcontrols;
+	}
+}

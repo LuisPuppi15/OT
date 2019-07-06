@@ -1,0 +1,57 @@
+<ul class="lista-items">
+	<?php
+	$index = 0;
+	foreach ($contactos as $key => $contacto) {
+		?>
+		<li class="item" data-id="<?php echo $contacto->getIdcontacto() ?>">
+			<?php
+			$titulo = $contacto->getTitulo();
+			$direccion = $contacto->getDireccion();
+			$telefono = $contacto->getTelefono();
+			$anexo = $contacto->getAnexo();
+			$email = $contacto->getEmail();
+			?>
+			<label class="my-radio">
+				<input type="radio" name="selector">
+				<i class="fa fa-circle-thin"></i>
+				<i class="fa fa-dot-circle-o"></i>
+				<div class="titulo"><?php echo $titulo ?></div>
+			</label>
+			<hr>
+			<?php if ($direccion != ''): ?>
+				<div class="campo-compuesto">
+					<i class="fa fa-map-marker"></i>
+					<div class="texto">
+						<?php echo $direccion ?>
+					</div>
+				</div>
+			<?php endif ?>
+			<?php if ($telefono != ''): ?>
+				<div class="campo-compuesto">
+					<i class="fa fa-phone"></i>
+					<div class="texto">
+						<?php echo $telefono ?>
+					</div>
+				</div>
+			<?php endif ?>
+			<?php if ($anexo != ''): ?>
+				<div class="campo-compuesto">
+					<i class="fa fa-phone-square"></i>
+					<div class="texto">
+						<?php echo $anexo ?>
+					</div>
+				</div>
+			<?php endif ?>
+			<?php if ($email != ''): ?>
+				<div class="campo-compuesto">
+					<i class="fa fa-envelope-o"></i>
+					<div class="texto">
+						<?php echo $email ?>
+					</div>
+				</div>
+			<?php endif ?>
+		</li>
+		<?php
+	}
+	?>
+</ul>

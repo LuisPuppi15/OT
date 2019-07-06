@@ -1,0 +1,72 @@
+<?php
+
+namespace Sistema\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Persona
+ *
+ * @ORM\Table(name="persona")
+ * @ORM\Entity
+ */
+class Persona {
+	/**
+	 * @var integer
+	 *
+	 * @ORM\Column(name="npercodigo", type="integer", nullable=false)
+	 * @ORM\Id
+	 * @ORM\GeneratedValue(strategy="SEQUENCE")
+	 * @ORM\SequenceGenerator(sequenceName="persona_npercodigo_seq", allocationSize=1, initialValue=1)
+	 */
+	private $npercodigo;
+
+	/**
+	 * @var string
+	 *
+	 * @ORM\Column(name="cpernombre", type="string", length=500, nullable=false)
+	 */
+	private $cpernombre;
+
+	/**
+	 * @var string
+	 *
+	 * @ORM\Column(name="cperapellidos", type="string", length=500, nullable=true)
+	 */
+	private $cperapellidos;
+
+	/**
+	 * @var string
+	 *
+	 * @ORM\Column(name="nperdni", type="string", length=8, nullable=false)
+	 */
+	private $nperdni;
+
+	/**
+	 * @var \DateTime
+	 *
+	 * @ORM\Column(name="dpernacimiento", type="date", nullable=true)
+	 */
+	private $dpernacimiento;
+
+	/**
+	 * @var integer
+	 *
+	 * @ORM\Column(name="npertipo", type="integer", nullable=false)
+	 */
+	private $npertipo;
+
+	/**
+	 * @var integer
+	 *
+	 * @ORM\Column(name="nperestado", type="integer", nullable=false)
+	 */
+	private $nperestado;
+
+	/**
+	 * @var \Sistema\Entity\Perusuario
+	 * @ORM\OneToMany(targetEntity="Sistema\Entity\Perusuario", mappedBy="persona")
+	 */
+	protected $perusuarios;
+
+}

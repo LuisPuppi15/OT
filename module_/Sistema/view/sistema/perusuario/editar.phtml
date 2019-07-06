@@ -1,0 +1,71 @@
+<div class="componente" data-componente="modal perusuario" data-modal-nombre="modal-post" data-perusuario-nombre="perusuario" data-modal-width="400" data-modal-title="Registrar">
+	<div class="marco">
+		<div class="row">
+			<div class="col-lg-12 marco-perusuario">
+				<div class="componente" data-componente="formulario" data-formulario-nombre="formulario">
+					<?php
+					$form = $this->form;
+					$form->setAttribute('data-ruta', $this->url($this->ruta, array('action' => 'editar', 'parametros' => $this->id)));
+
+					echo $this->form()->openTag($form);
+					?>
+					<div class="modal-body">
+						<?php
+						$layoutHorizontal = TwbBundle\Form\View\Helper\TwbBundleForm::LAYOUT_HORIZONTAL;
+
+						// cperusuname
+						$input = $form->get('cperusuname');
+						$input->setOptions(array(
+							'column-size' => 'lg-8',
+							'label_attributes' => array(
+								'class' => 'col-lg-4',
+								),
+							'twb-layout' => $layoutHorizontal,
+							));
+						echo $this->formRow($input);
+
+						// cperusuclave
+						$input = $form->get('cperusuclave');
+						$input->setOptions(array(
+							'column-size' => 'lg-8',
+							'label_attributes' => array(
+								'class' => 'col-lg-4',
+								),
+							'twb-layout' => $layoutHorizontal,
+							));
+						echo $this->formRow($input);
+
+						// persona
+						$input = $form->get('persona');
+						$input->setOptions(array(
+							'column-size' => 'lg-8',
+							'label_attributes' => array(
+								'class' => 'col-lg-4',
+								),
+							'twb-layout' => $layoutHorizontal,
+							));
+						echo $this->formRow($input);
+						?>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default btn-modal cancelar">Cancelar</button>
+							<?php
+							// eviar
+							$button = $form->get('enviar');
+							$button->setOptions(array(
+								'label' => 'Guardar',
+								'column-size' => 'sm-8 col-sm-offset-4',
+								));
+							$button->setAttributes(array(
+								'type' => 'submit',
+								'class' => 'btn btn-modal enviar',
+								));
+							echo $this->formButton($button);
+							?>
+						</div>
+					</div>
+					<?php echo $this->form()->openTag($form); ?>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

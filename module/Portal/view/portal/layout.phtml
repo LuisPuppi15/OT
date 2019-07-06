@@ -1,0 +1,261 @@
+<?php
+$basepath = $this->basePath();
+?>
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>:: Proceso de Ordenamiento Territorial del Departamento de Lambayeque ::</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+	<!-- Estilos -->
+	<link rel="stylesheet" href="<?php echo $basepath ?>/lib/boilerplate/css/normalize.css">
+	<link rel="stylesheet" href="<?php echo $basepath ?>/lib/bootstrap-2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="<?php echo $basepath ?>/lib/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="<?php echo $basepath ?>/lib/bxslider/jquery.bxslider.css">
+	<link rel="stylesheet" href="<?php echo $basepath ?>/lib/lightbox/css/lightbox.css">
+	<link rel="stylesheet" href="<?php echo $basepath ?>/css/layout.css">
+	<link rel="stylesheet" href="<?php echo $basepath ?>/css/sidebar.css">
+	<link rel="stylesheet" href="<?php echo $basepath ?>/css/portada.css">
+	<link rel="stylesheet" href="<?php echo $basepath ?>/css/publicaciones.css">
+	<link rel="stylesheet" href="<?php echo $basepath ?>/css/contenido.css">
+	<link rel="stylesheet" href="<?php echo $basepath ?>/css/noticia.css">
+	<link rel="stylesheet" href="<?php echo $basepath ?>/css/galerias.css">
+	<link rel="stylesheet" href="<?php echo $basepath ?>/css/galeria.css">
+	<link rel="stylesheet" href="<?php echo $basepath ?>/css/boletines.css">
+	<link rel="stylesheet" href="<?php echo $basepath ?>/css/mapaweb.css">
+	<link rel="stylesheet" href="<?php echo $basepath ?>/css/contacto.css">
+	<link rel="stylesheet" href="<?php echo $basepath ?>/css/datosespaciales.css">
+
+	<!-- Scripts -->
+	<script src="<?php echo $basepath ?>/lib/boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
+	<script src="<?php echo $basepath ?>/lib/jquery/jquery-1.11.2.min.js"></script>
+	<script src="<?php echo $basepath ?>/lib/bootstrap-2/js/bootstrap.min.js"></script>
+	<script src="<?php echo $basepath ?>/lib/bxslider/jquery.bxslider.min.js"></script>
+	<script src="<?php echo $basepath ?>/lib/lightbox/js//lightbox.min.js"></script>
+	<script src="<?php echo $basepath ?>/js/main.js"></script>
+</head>
+<body>
+	<!--[if lt IE 7]>
+	<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+	<![endif]-->
+
+	<div class="container">
+		<div class="row cabecera-1">
+			<div class="col-lg-6 col-md-6 fecha">
+				<span>Lambayeque, <?php echo $this->fecha_helper('full'); ?></span>
+			</div>
+			<div class="col-lg-6 col-md-6 sociales">
+				<ul>
+					<li><a href="https://www.facebook.com/pages/Ordenamiento-Territorial-G-R-Lambayeque/1429401134003566?fref=nf" target="_blank">Facebook</a></li>
+					<li>|</li>
+					<li><a href="https://www.youtube.com/user/ordenamiento1001?feature=watch" target="_blank">YouTube</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="row cabecera-2">
+			<div class="col-lg-6 enlaces">
+				<ul>
+					<?php
+					$menusPrimerNivel = $this->menu_helper(1);
+					$cantidad = count($menusPrimerNivel);
+					$cont = 0;
+
+					foreach ($menusPrimerNivel as $menu) {
+						$atributos = $this->menu_atributos_helper($menu);
+						?>
+						<li><a href="<?php echo $atributos['href'] ?>" target="<?php echo $atributos['target'] ?>"><?php echo $menu->getCmennombre() ?></a></li>
+						<?php
+						$cont++;
+						if ($cont < $cantidad) {
+							?><li>|</li><?php
+						}
+					}
+					?>
+				</ul>
+			</div>
+			<div class="col-lg-6 usuario">
+				<script language="JavaScript" src="http://s1.freehostedscripts.net/ocount.php?site=ID2837278&name="></script>
+				<div class="contador">Usuario Nº <span></span></div>
+			</div>
+		</div>
+		<div class="row cabecera-3">
+			<div class="col-lg-6 col-md-6 logo-1">
+				<img src="<?php echo $basepath ?>/img/logo-1.png" alt="">
+				<div class="separador"></div>
+				<div class="texto">
+					Proceso de Ordenamiento <br>
+					Territorial del Departamento <br>
+					de Lambayeque
+				</div>
+			</div>
+			<div class="col-lg-6 col-md-6 logo-2">
+				<img src="<?php echo $basepath ?>/img/logo-2.png" alt="">
+			</div>
+		</div>
+		<div class="row cabecera-4">
+			<div class="col-lg-12 titulo">
+				<h1>
+					<?php
+					$objTitulo = $this->titulo_helper();
+
+					if ($objTitulo) {
+						$titulo = $objTitulo->getTitulo();
+						$descripcion = $objTitulo->getDescripcion();
+
+						echo $titulo;
+						?><br><small><?php echo $descripcion ?></small><?php
+					}
+					?>
+				</h1>
+			</div>
+		</div>
+		<div class="row menu-superior">
+			<nav class="navbar navbar-default">
+				<div class="container-fluid">
+					<!-- Header -->
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+					</div>
+					<!-- Elementos -->
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav">
+							<?php
+							$menusSegundoNivel = $this->menu_helper(2);
+							$cantidad = count($menusSegundoNivel);
+
+							foreach ($menusSegundoNivel as $menu) {
+								$atributos = $this->menu_atributos_helper($menu);
+
+								if ($menu->getHijos()->count() > 0) {
+									$menusHijos = $this->menu_hijos_helper($menu->getNmencodigo());
+									?>
+									<li class="drowdown">
+										<a href="<?php echo $atributos['href'] ?>" target="<?php echo $atributos['target'] ?>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="texto"><?php echo $menu->getCmennombre() ?></span></a>
+										<ul class="dropdown-menu" role="menu">
+											<?php
+											foreach ($menusHijos as $menuHijo) {
+												$atributos = $this->menu_atributos_helper($menuHijo);
+												?><li><a href="<?php echo $atributos['href'] ?>" target="<?php echo $atributos['target'] ?>"><?php echo $menuHijo->getCmennombre() ?></a></li><?php
+											}
+											?>
+										</ul>
+									</li>
+									<?php
+								} else {
+									?>
+									<li><a href="<?php echo $atributos['href'] ?>" target="<?php echo $atributos['target'] ?>"><span class="texto"><?php echo $menu->getCmennombre() ?></span></a></li>
+									<?php
+								}
+
+							}
+							?>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</div>
+		<div class="row contenido">
+			<div class="col-lg-12">
+				<?php echo $this->placeholder('contenido') ?>
+			</div>
+		</div>
+	</div>
+	<footer class="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3 boletin">
+					<?php
+					$boletin = $this->boletin_helper();
+
+					if ($boletin) {
+						$rutaPdf = $basepath.'/upload/pdf/'.$boletin->getCbolrutapdf();
+						$rutaImg = $this->htImgUrl($boletin->getCbolrutaimg(), 'boletin-portada');
+						?>
+						<h1 class="titulo-con-logo"><i class="fa fa-desktop"></i><span>BOLETÍN</span></h1>
+						<a href="<?php echo $rutaPdf ?>" target="_blank" class="miniatura">
+							<img src="<?php echo $rutaImg ?>" alt="">
+						</a>
+						<?php
+					}
+					?>
+					<a href="<?php echo $this->url('portal/boletines') ?>" class="mas-boletines">Más boletines</a>
+				</div>
+				<div class="col-lg-3 contacto">
+					<h1 class="titulo-con-logo"><i class="fa fa-map-marker"></i><span>CONTACTO</span></h1>
+					<div class="info">
+						<?php
+						$contacto = $this->contacto_helper();
+						?>
+						<h1><?php echo $contacto->getTitulo() ?></h1>
+						<p><?php echo $contacto->getDireccion() ?></p>
+						<p>
+							Teléfono: <?php echo $contacto->getTelefono() ?> <br>
+							Anexos: <?php echo $contacto->getAnexo() ?> <br>
+							<?php echo $contacto->getEmail() ?>
+						</p>
+						<p>
+							Derechos Reservados©2013 <br>
+							Powered by: www.planeador.pe
+						</p>
+					</div>
+				</div>
+				<div class="col-lg-6 galeria">
+					<h1 class="titulo-con-logo"><i class="fa fa-plus"></i><span>GALERÍA</span></h1>
+					<ul>
+						<?php
+						$galerias = $this->galeria_helper();
+
+						foreach ($galerias as $galeria) {
+							?>
+							<li>
+								<a href="<?php echo $this->url('portal/galeria', array('codigo' => $galeria->getNgalcodigo())) ?>" class="miniatura">
+									<img src="<?php echo $this->htImgUrl($galeria->getCgalimagen(), 'galeria') ?>" alt="">
+									<div class="cover">
+										<span class="titulo"><?php echo $galeria->getCgaltitulo() ?></span>
+										<span class="subtitulo"><?php echo $galeria->getCgalsubtitulo() ?></span>
+									</div>
+								</a>
+							</li>
+							<?php
+						}
+						?>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="franja-inferior"></div>
+	</footer>
+
+	<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+	<script>
+		(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+			function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+		e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+		e.src='//www.google-analytics.com/analytics.js';
+		r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+		ga('create','UA-XXXXX-X');ga('send','pageview');
+	</script>
+
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) return;
+		js = d.createElement(s); js.id = id;
+		js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.0";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+</body>
+</html>

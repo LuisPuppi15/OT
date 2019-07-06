@@ -1,0 +1,101 @@
+<?php
+
+namespace Sistema\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Noticia
+ *
+ * @ORM\Table(name="noticia")
+ * @ORM\Entity(repositoryClass="Sistema\Repository\NoticiaRepository")
+ */
+class Noticia {
+	/**
+	 * @var integer
+	 *
+	 * @ORM\Column(name="nnotcodigo", type="integer", nullable=false)
+	 * @ORM\Id
+	 * @ORM\GeneratedValue(strategy="SEQUENCE")
+	 * @ORM\SequenceGenerator(sequenceName="noticia_nnotcodigo_seq", allocationSize=1, initialValue=1)
+	 */
+	private $nnotcodigo;
+
+	/**
+	 * @var string
+	 *
+	 * @ORM\Column(name="cnotjerarquia", type="string", length=10, nullable=false)
+	 */
+	private $cnotjerarquia;
+
+	/**
+	 * @var string
+	 *
+	 * @ORM\Column(name="cnottitulo", type="string", length=250, nullable=false)
+	 */
+	private $cnottitulo;
+
+	/**
+	 * @var string
+	 *
+	 * @ORM\Column(name="cnotpietitulo", type="string", length=500, nullable=false)
+	 */
+	private $cnotpietitulo;
+
+	/**
+	 * @var string
+	 *
+	 * @ORM\Column(name="cnotrutaimgfull", type="string", length=500, nullable=false)
+	 */
+	private $cnotrutaimgfull;
+
+	/**
+	 * @var string
+	 *
+	 * @ORM\Column(name="cnotrutaimgmin", type="string", length=500, nullable=true)
+	 */
+	private $cnotrutaimgmin;
+
+	/**
+	 * @var string
+	 *
+	 * @ORM\Column(name="cnotleyenda", type="string", length=500, nullable=true)
+	 */
+	private $cnotleyenda;
+
+	/**
+	 * @var string
+	 *
+	 * @ORM\Column(name="cnotcontenido", type="text", nullable=false)
+	 */
+	private $cnotcontenido;
+
+	/**
+	 * @var \DateTime
+	 *
+	 * @ORM\Column(name="dnotfecha", type="date", nullable=false)
+	 */
+	private $dnotfecha;
+
+	/**
+	 * @var \DateTime
+	 *
+	 * @ORM\Column(name="dnotfechareg", type="date", nullable=false)
+	 */
+	private $dnotfechareg;
+
+	/**
+	 * @var \DateTime
+	 *
+	 * @ORM\Column(name="dnotfechapublico", type="date", nullable=true)
+	 */
+	private $dnotfechapublico;
+
+	/**
+	 * @var integer
+	 *
+	 * @ORM\Column(name="nnotestado", type="integer", nullable=false)
+	 */
+	private $nnotestado;
+
+}

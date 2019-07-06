@@ -1,0 +1,91 @@
+<div class="componente" data-componente="portada" data-portada-nombre="portada">
+	<div class="container-fluid main">
+		<div class="row cabecera">
+			<div class="col-lg-7">
+				<div class="logo">
+					<img src="<?php echo $this->basePath().'/img/logo2.png' ?>" alt="">
+					<div class="titulo">
+						<h1>Ordenamiento Territorial para el DS</h1>
+						<h3>GOBIERNO REGIONAL DE LAMBAYEQUE</h3>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-5">
+				<div class="opciones">
+					<ul class="botones">
+						<li>
+							<span class="glyphicon glyphicon-user"></span><?php echo $this->persona ?>
+						</li>
+						<li class="opcion">
+							<?php $ruta = $this->url('sistema/autenticacion', array('action' => 'logout')) ?>
+							<span class="glyphicon glyphicon-log-out"></span><a href="<?php echo $ruta ?>">Cerrar sesión</a>
+						</li>
+						<li class="opcion">
+							<span class="glyphicon glyphicon-question-sign"></span><a href="">Ayuda</a>
+						</li>
+					</ul>
+					<div class="fecha">
+						<span class="glyphicon glyphicon-calendar"></span>
+						<div class="texto"><?php echo $this->fecha ?></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row cuerpo">
+			<div class="col-lg-12">
+				<div class="menu-principal">
+					<!-- Pestañas -->
+					<ul class="nav nav-tabs" role="tablist">
+						<?php
+						$cont=0;
+						foreach ($modulos as $modulo) {
+							$clase = '';
+							if ($cont === 0) {
+								$clase = 'active';
+							}
+							?>
+							<li class="<?php echo $clase ?>">
+								<a href="#<?php echo $modulo->getNctrcodigo() ?>" role="tab" data-toggle="tab">
+									<?php
+									$nctrdescripcion = $modulo->getNctrdescripcion();
+									$icono = ($nctrdescripcion) ? json_decode($nctrdescripcion)->icono : '';
+									?>
+									<i class="<?php echo $icono ?>"></i>
+									<span class="texto"><?php echo $modulo->getCctrnombre() ?></span>
+								</a>
+							</li>
+							<?php
+							$cont++;
+						}
+						?>
+					</ul>
+				</div>
+				<!-- Contenidos -->
+				<div class="tab-content">
+					<?php
+					$cont = 0;
+					foreach ($modulos as $modulo) {
+						$clase = '';
+						if ($cont === 0) {
+							$clase = ' active';
+						}
+						?>
+						<div class="tab-pane <?php echo $clase ?>" id="<?php echo $modulo->getNctrcodigo() ?>">
+							<?php
+							$menus = $this->menus[$modulo->getNctrcodigo()];
+							$variables = array(
+								'menus' => $this->menus[$modulo->getNctrcodigo()],
+								'subMenus' => $this->subMenus[$modulo->getNctrcodigo()],
+								);
+							echo $this->partial('sistema/portada/menu.phtml', $variables);
+							?>
+						</div>
+						<?php
+						$cont++;
+					}
+					?>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

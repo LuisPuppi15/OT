@@ -1,0 +1,13 @@
+[data-componente~="modal"] .marco {
+  margin: 10px;
+  background-color: #FFF; }
+  [data-componente~="modal"] .marco > .row {
+    margin: 0; }
+  [data-componente~="modal"] .marco .btn-modal.llamar {
+    color: #FFF;
+    border: 1px solid #19A9D5;
+    background-color: #19A9D5; }
+  [data-componente~="modal"] .marco .btn-modal.llamar:hover {
+    background-color: #1487aa; }
+
+/*# sourceMappingURL=modal.css.map */

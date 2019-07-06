@@ -1,0 +1,297 @@
+@import 'parametros.scss';
+@import 'mixins.scss';
+
+html{
+	visibility: hidden;
+	opacity: 0;
+	body{
+		background-color: $men-int-bk-color-1;
+		#base-path{
+			display: none;
+		}
+		.center{
+			text-align: center;
+		}
+		.container-fluid.main{
+			padding: 0;
+			.cabecera{
+				margin: 0;
+				background-color: #FFF;
+				.logo{
+					padding: 10px 0px;
+					img{
+						float: left;
+						margin: 0px 10px 0px 0px;
+						width: 60px;
+					}
+					.titulo{
+						float: left;
+						font-family: $font-1;
+						color: $color-1;
+						h1{
+							margin: 10px 0px 4px 0px;
+							font-size: 22px;
+						}
+						h3{
+							font-size: 14px;
+							margin: 0px 0px 8px 0px;
+						}
+					}
+				}
+				.opciones{
+					overflow: hidden;
+					padding: 14px 0px;
+					.botones{
+						float: right;
+						list-style: none;
+						li{
+							float: left;
+							margin: 0px 0px 0px 18px;
+							font-size: 14px;
+							color: $color-1;
+							font-family: $font-1;
+							.glyphicon{
+								margin: 0px 4px 0px 0px;
+							}
+							a{
+								color: $color-1;
+							}
+							a:hover{
+								text-decoration: none;
+							}
+						}
+						li.opcion:hover{
+							color: $bk-color-1;
+							a{
+								color: $bk-color-1;
+							}
+						}
+					}
+					.fecha{
+						float: right;
+						clear: right;
+						margin: 6px 0px 0px 0px;
+						color: $color-2;
+						font-size: 12px;
+						.glyphicon{
+							float: left;
+							margin: 0px 6px 0px 0px;
+						}
+						.texto{
+							float: left;
+							font-family: $font-2;
+						}
+					}
+				}
+			}
+			.cuerpo{
+				margin: 0;
+				>[class*="col-"]{
+					padding: 0;
+				}
+				.menu-principal{
+					position: relative;
+					z-index: 1;
+					.nav{
+						background-color: $men-pri-bk-color-1;
+					}
+					.nav-tabs{
+						border-left: none;
+						border-top: none;
+						border-right: none;
+						border-bottom: 4px solid $men-pri-bk-color-2;
+						>li{
+							margin: 0;
+							padding: 3px 0px 0px 0px;
+							>a{
+								position: relative;
+								margin: 0;
+								padding: 6px 13px 8px 13px;
+								font-size: 13px;
+								// letter-spacing: 0.6px;
+								font-family: $font-1;
+								color: $men-pri-color-1;
+								font-weight: 600;
+								border: none;
+								@include border-radius(0px, 0px, 0px, 0px);
+								.fa{
+									margin: 0px 6px 0px 0px;
+								}
+							}
+						}
+						>li:not(.active){
+							>a:hover{
+								border: none;
+								background-color: transparent;
+							}
+						}
+						>li.active{
+							>a{
+								border-left: 0px solid transparent;
+								background-color: $men-pri-bk-color-2;
+								color: $men-pri-color-2;
+							}
+						}
+					}
+					+.tab-content{
+						>.tab-pane{
+							>.row{
+								margin: 0;
+							}
+						}
+					}
+				}
+				.menu-interno{
+					padding: 0;
+					.nav{
+						height: 100%;
+						border: none;
+					}
+					.nav-pills{
+						border-right: 1px solid $bd-color-1;
+						li.desplegable{
+							a{
+								background-color: transparent;
+								>.button-item{
+									width: 100%;
+									font-family: $font-2;
+									font-size: 12.5px;
+									text-align: left;
+									color: $color-4;
+									border: none;
+									padding: 12px 8px;
+									background-color: transparent;
+									>.fa{
+										margin: 0px 6px 0px 0px;
+										border: none;
+										@include transition(all, 0.15s, linear, 0s);
+									}
+								}
+								>.button-item:not(.collapsed){
+									>.fa{
+										@include rotate(90deg);
+									}
+								}
+								>.button-item:active{
+									box-shadow: none;
+								}
+								>.button-item:focus{
+									outline: none;
+								}
+							}
+							.subitem{
+								padding: 12px 8px 12px 30px;
+								font-family: $font-2;
+								font-size: 12px;
+								display: block;
+								color: $color-1;
+								background-color: $men-int-bk-color-4;
+							}
+							.subitem:hover{
+								color: $color-1;
+								text-decoration: none;
+							}
+							.subitem.active{
+								background-color: $men-int-bk-color-3;
+								color: #FFF;
+							}
+						}
+						>li{
+							border-bottom: 1px solid $men-int-bd-color;
+							>a{
+								padding: 0;
+								font-family: $font-2;
+								color: $men-int-color;
+								font-size: 12.5px;
+								margin-top: 0px;
+								@include border-radius(0px, 0px, 0px, 0px);
+								>.fa{
+									margin: 0px 6px 0px 0px;
+								}
+							}
+							>a.link-item{
+								padding: 12px 8px;
+							}
+							a:hover{
+								background-color: $men-int-bk-color-2;
+							}
+						}
+						>li + li{
+							margin-top: 0px;
+						}
+						>li.active{
+							>a{
+								color: #FFF;
+								background-color: $men-int-bk-color-3;
+								>.button-item{
+									background-color: $men-int-bk-color-2;
+								}
+							}
+						}
+					}
+				}
+				.contenido{
+					padding: 0;
+					background-color: #FFF;
+					.tab-pane{
+						padding: 15px 15px 15px 15px;
+						background-color: $bk-color-7;
+					}
+					.navegador{
+						ul{
+							display: inline-block;
+							margin: 0px 0px 4px 0px;
+							padding: 0;
+							list-style: none;
+							li{
+								float: left;
+								margin: 0px 10px 6px 10px;
+								font-family: $font-1;
+								color: #7b7d82;
+								a{
+									color: #7b7d82;
+								}
+								a:hover{
+									text-decoration: none;
+								}
+								a.resaltado{
+									color: #515050;
+									font-weight: bold;
+								}
+							}
+						}
+					}
+					.marco-data{
+						// border: 1px solid $bd-color-1;
+						padding: 10px;
+						background-color: #FFF;
+					}
+					.botonera{
+						padding: 0px 0px;
+						.btn{
+							margin: 0px 2px 0px 0px;
+							padding: 0px 10px 0px 0px;
+							.fa{
+								padding: 8px 10px;
+							}
+							.texto{
+								padding: 0px 0px 0px 6px;
+							}
+						}
+					}
+					.paginador{
+						margin: 10px 0px 0px 0px;
+						border-top: 1px solid $bd-color-1;
+						.pagination{
+							margin: 10px 0px 0px 0px;
+						}
+					}
+				}
+				.modal-template{
+					display: none;
+				}
+			}
+		}
+	}
+}
+

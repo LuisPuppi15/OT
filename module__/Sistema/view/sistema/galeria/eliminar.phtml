@@ -1,0 +1,34 @@
+<div class="componente" data-componente="modal" data-modal-nombre="modal-post" data-modal-width="400" data-modal-title="Eliminar">
+	<div class="marco">
+		<div class="componente" data-componente="formulario" data-formulario-nombre="formulario">
+			<?php
+			$form = $this->form;
+			$form->setAttribute('data-ruta', $this->url($this->ruta, array('action' => 'eliminar', 'parametros' => $galeria->getNgalcodigo())));
+
+			echo $this->form()->openTag($form);
+			?>
+			<div class="modal-body">
+				<div class="alert alert-danger" role="alert">
+					¿Está seguro de eliminar el item: <?php echo $galeria->getCgaltitulo(); ?>?
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default btn-modal cancelar" data-dismiss="modal">Cancelar</button>
+					<?php
+					// guardar
+					$button = $form->get('enviar');
+					$button->setOptions(array(
+						'label' => 'Eliminar',
+						'column-size' => 'sm-10 col-sm-offset-2',
+						));
+					$button->setAttributes(array(
+						'type' => 'submit',
+						'class' => 'btn btn-modal eliminar',
+						));
+					echo $this->formButton($button);
+					?>
+				</div>
+			</div>
+			<?php echo $this->form()->closeTag($form); ?>
+		</div>
+	</div>
+</div>

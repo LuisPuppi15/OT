@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<?php echo $this->headTitle('.:: Administrador de contenidos ::.') ?>
+	<?php echo $this->headMeta()
+	->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
+	->appendName('viewport', 'width=device-width, initial-scale=1');
+
+	$estilos = array(
+		'bootstrap'=>'/lib/bootstrap/css/bootstrap.min.css',
+		'font-awesome'=>'/lib/font-awesome/css/font-awesome.min.css',
+		'my-bootstrap'=>'/css/my-bootstrap.css',
+		'login'=>'/css/login.css',
+		);
+	foreach ($estilos as $key => $value) {
+		$this->headLink()->appendStylesheet($this->basePath().$value);
+	}
+
+	$fonts = array(
+		'google-fonts-1'=>'http://fonts.googleapis.com/css?family=Gudea:400,700',
+		'google-fonts-2'=>'http://fonts.googleapis.com/css?family=Open+Sans:700,400,600',
+		);
+	foreach ($fonts as $key => $font) {
+		$this->headLink()->appendStylesheet($font);
+	}
+
+	echo $this->headLink();
+	?>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-offset-4 col-lg-4">
+				<div class="formulario">
+					<h1 class="text-center">Gobierno Regional de Lambayeque</h1>
+					<h2 class="text-center">Formulario de acceso</h2>
+					<?php
+					$form = $this->form;
+					$form->setAttribute('data-ruta', $this->url($this->ruta, array('action' => 'login')));
+
+					echo $this->form()->openTag($form);
+					$layoutHorizontal = TwbBundle\Form\View\Helper\TwbBundleForm::LAYOUT_HORIZONTAL;
+
+					// cperusuname
+					$input = $form->get('cperusuname');
+					$input->setOptions(array(
+						'column-size' => 'lg-12',
+						'twb-layout' => $layoutHorizontal,
+						));
+					echo $this->formRow($input);
+
+					// cperusuclave
+					$input = $form->get('cperusuclave');
+					$input->setOptions(array(
+						'column-size' => 'lg-12',
+						'twb-layout' => $layoutHorizontal,
+						));
+					echo $this->formRow($input);
+					?>
+					<div class="row">
+						<div class="col-lg-12 text-center">
+							<button type="submit" class="btn btn-default btn-submit">
+								<span class="texto">Acceder</span>
+								<i class="fa fa-sign-in"></i>
+							</button>
+						</div>
+						<div class="col-lg-12">
+							<div class="text-center mensaje-error">
+								<?php echo $this->mensajeError ?>
+							</div>
+						</div>
+						<?php echo $this->form()->closeTag($form); ?>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

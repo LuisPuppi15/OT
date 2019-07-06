@@ -1,0 +1,54 @@
+.cont-galerias .lista {
+  float: right;
+  width: 620px;
+  padding: 15px; }
+  .cont-galerias .lista .galerias {
+    float: left;
+    clear: left;
+    width: 540px;
+    margin: 0px 0px 0px 80px;
+    padding: 0;
+    list-style: none; }
+    .cont-galerias .lista .galerias li .galeria {
+      float: left;
+      margin: 0px 10px 10px 0px;
+      width: 95px;
+      height: 120px; }
+      .cont-galerias .lista .galerias li .galeria .miniatura {
+        float: left;
+        width: 100%;
+        height: 100%;
+        border: 4px solid #7B7C7E;
+        box-sizing: border-box; }
+      .cont-galerias .lista .galerias li .galeria .texto {
+        float: left;
+        clear: left;
+        width: 100%;
+        height: 100%;
+        word-wrap: break-word; }
+        .cont-galerias .lista .galerias li .galeria .texto .titulo {
+          font-size: 11px;
+          font-family: dinBold; }
+        .cont-galerias .lista .galerias li .galeria .texto .subtitulo {
+          font-size: 10px; }
+.cont-galerias .titulo-con-logo {
+  font-family: dinBold;
+  color: #3E3D40;
+  font-size: 18px;
+  margin: 0px;
+  padding: 10px 0px; }
+  .cont-galerias .titulo-con-logo .fa {
+    float: left;
+    margin: 0px 10px 12px 0px;
+    padding: 7px 8px 7px 10px;
+    color: #D6E7E4;
+    background-color: #12A1A7;
+    -webkit-border-radius: 20px 20px 20px 20px;
+    -moz-border-radius: 20px 20px 20px 20px;
+    -ms-border-radius: 20px 20px 20px 20px;
+    border-radius: 20px 20px 20px 20px; }
+  .cont-galerias .titulo-con-logo span {
+    float: left;
+    padding: 7px 0px 0px 0px; }
+
+/*# sourceMappingURL=galerias.css.map */

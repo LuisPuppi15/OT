@@ -1,0 +1,105 @@
+<div class="componente" data-componente="modal" data-modal-nombre="modal-post" data-modal-width="500" data-modal-title="Registrar">
+	<div class="marco">
+		<div class="componente" data-componente="formulario" data-formulario-nombre="formulario">
+			<?php
+			$form = $this->form;
+			$form->setAttribute('data-ruta', $this->url($this->ruta, array('action' => 'editar', 'parametros' => $this->id)));
+
+			echo $this->form()->openTag($form);
+			?>
+			<div class="modal-body">
+				<?php
+				$layoutHorizontal = TwbBundle\Form\View\Helper\TwbBundleForm::LAYOUT_HORIZONTAL;
+
+				// cboltitulo
+				$input = $form->get('cboltitulo');
+				$input->setOptions(array(
+					'column-size' => 'lg-9',
+					'label_attributes' => array(
+						'class' => 'col-lg-3',
+						),
+					'twb-layout' => $layoutHorizontal,
+					));
+				echo $this->formRow($input);
+
+				// dbolanio
+				$input = $form->get('dbolanio');
+				$input->setOptions(array(
+					'column-size' => 'lg-4',
+					'label_attributes' => array(
+						'class' => 'col-lg-3',
+						),
+					'twb-layout' => $layoutHorizontal,
+					));
+				echo $this->formRow($input);
+
+				// cbolrutaimg
+				$cbolrutaimg = $form->get('cbolrutaimg');
+				$cbolrutaimg->setOptions(array(
+					'label_attributes' => array(
+						'class' => 'col-lg-3 control-label',
+						),
+					)
+				);
+				$value = $cbolrutaimg->getAttribute('data-value');
+				$cbolrutaimgPath = ($value != '') ? $this->htImgUrl($cbolrutaimg->getAttribute('data-value'), 'estandar') : '';
+				$cbolrutaimg->setAttribute('data-path', $cbolrutaimgPath);
+
+				// imgString
+				$imgString = $form->get('imgString');
+				$imgString->setOptions(array(
+					'label_attributes' => array(
+						'class' => 'col-lg-3',
+						),
+					)
+				);
+				?>
+				<div class="form-group file-group">
+					<?php echo $this->formLabel($cbolrutaimg) ?>
+					<div class="col-lg-9">
+						<?php echo $this->formElement($cbolrutaimg) ?>
+						<?php echo $this->formElement($imgString) ?>
+					</div>
+				</div>
+				<?php
+				// cbolrutapdf
+				$cbolrutapdf = $form->get('cbolrutapdf');
+				$cbolrutapdf->setOptions(array(
+					'label_attributes' => array(
+						'class' => 'col-lg-3 control-label',
+						),
+					)
+				);
+
+				// pdfString
+				$pdfString = $form->get('pdfString');
+				$pdfString->setOptions(array(
+					'label_attributes' => array(
+						'class' => 'col-lg-3',
+						),
+					)
+				);
+				?>
+				<div class="form-group file-group">
+					<?php echo $this->formLabel($cbolrutapdf) ?>
+					<div class="col-lg-9">
+						<?php echo $this->formElement($cbolrutapdf) ?>
+						<?php echo $this->formElement($pdfString) ?>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default btn-modal cancelar" data-dismiss="modal">Cancelar</button>
+					<?php
+					// enviar
+					$button = $form->get('enviar');
+					$button->setOptions(array(
+						'column-size' => 'sm-10 col-sm-offset-2',
+						));
+					echo $this->formButton($button);
+					?>
+				</div>
+			</div>
+			<?php echo $this->form()->closeTag($form); ?>
+		</div>
+	</div>
+</div>

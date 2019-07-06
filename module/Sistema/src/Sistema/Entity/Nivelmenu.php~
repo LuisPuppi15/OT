@@ -1,0 +1,49 @@
+<?php
+
+namespace Sistema\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Nivelmenu
+ *
+ * @ORM\Table(name="nivelmenu")
+ * @ORM\Entity(repositoryClass="Sistema\Repository\NivelmenuRepository")
+ */
+class Nivelmenu {
+	/**
+	 * @var integer
+	 *
+	 * @ORM\Column(name="nnivmencodigo", type="integer", nullable=false)
+	 * @ORM\Id
+	 * @ORM\GeneratedValue(strategy="SEQUENCE")
+	 * @ORM\SequenceGenerator(sequenceName="nivelmenu_nnivmencodigo_seq", allocationSize=1, initialValue=1)
+	 */
+	private $nnivmencodigo;
+
+	/**
+	 * @var string
+	 *
+	 * @ORM\Column(name="cnivmennombre", type="string", length=100, nullable=false)
+	 */
+	private $cnivmennombre;
+
+	/**
+	 * @var string
+	 *
+	 * @ORM\Column(name="cnivmendescripcion", type="string", length=500, nullable=true)
+	 */
+	private $cnivmendescripcion;
+
+	/**
+	 * @var integer
+	 *
+	 * @ORM\Column(name="nnivmenestado", type="integer", nullable=false)
+	 */
+	private $nnivmenestado;
+
+	/**
+	 * @ORM\OneToMany(targetEntity="Sistema\Entity\Menu", mappedBy="nivelmenu")
+	 */
+	protected $menus;
+}

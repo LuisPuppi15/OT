@@ -1,0 +1,38 @@
+<?php $this->placeholder('contenido')->captureStart(); ?>
+<div class="cont-mapaweb">
+	<div class="sidebar">
+		<?php echo $this->partial('portal/sidebar.phtml') ?>
+	</div>
+	<div class="detalle">
+		<h2>MAPA WEB</h2>
+
+		<?php
+		$menus = $this->menu_helper(2);
+		mostrarMenus($menus, $this);
+
+		function mostrarMenus($menus, $view)
+		{
+			?>
+			<ul class="menus">
+				<?php
+				foreach ($menus as $menu) {
+					$atributos = $view->menu_atributos_helper($menu);
+					?>
+					<li>
+						<a href="<?php echo $atributos['href'] ?>"><?php echo $menu->getCmennombre() ?></a>
+						<?php
+						if (count($menu->getHijos()) > 0) {
+							mostrarMenus($menu->getHijos(), $view);
+						}
+						?>
+					</li>
+					<?php
+				}
+				?>
+			</ul>
+			<?php
+		}
+		?>
+	</div>
+</div>
+<?php $this->placeholder('contenido')->captureEnd(); ?>

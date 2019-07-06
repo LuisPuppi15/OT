@@ -1,0 +1,63 @@
+@import 'parametros.scss';
+@import 'mixins.scss';
+
+html{
+	height: 100%;
+	body{
+		height: 100%;
+		background: radial-gradient(ellipse at center,  #2EACB2 0%,#1F777C 100%);
+		.formulario{
+			margin-top: 140px;
+			background-color: #FFF;
+			padding: 40px 50px 30px 50px;
+			font-family: $font-1;
+			>h1{
+				margin: 0;
+				font-size: 14px;
+				color: $color-2;
+			}
+			>h2{
+				margin: 6px 0px 0px 0px;
+				font-size: 24px;
+				color: $color-1;
+			}
+			form{
+				margin: 20px 0px 0px 0px;
+				.btn-submit{
+					border: none;
+					color: $color-1;
+					@include transition-min(color, 0.3s);
+					>.texto{
+						float: left;
+						font-weight: bold;
+						font-size: 13px;
+					}
+					>.fa{
+						float: right;
+						margin: 1px 0px 0px 4px;
+						font-size: 18px;
+					}
+					&:hover{
+						background-color: #FFF;
+						color: $ind-color-1;
+						>.texto{
+						}
+					}
+					&:active{
+						background-color: #fff;
+						box-shadow: none;
+					}
+					&:focus{
+						background-color: #fff;
+					}
+				}
+				.mensaje-error{
+					margin: 4px 0px 0px 0px;
+					font-weight: bold;
+					color: $ind-error;
+					font-size: 14px;
+				}
+			}
+		}
+	}
+}

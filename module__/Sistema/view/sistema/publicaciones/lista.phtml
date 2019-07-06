@@ -1,0 +1,26 @@
+<ul class="lista-items">
+	<?php
+	$index = 0;
+	foreach ($publicacioness as $key => $publicaciones) {
+		$cpubnombre = $publicaciones->getCpubnombre();
+		$cpuburl = $publicaciones->getCpuburl();
+		?>
+		<li class="item" data-id="<?php echo $publicaciones->getNpubcodigo() ?>">
+			<label class="my-radio">
+				<input type="radio" name="selector">
+				<i class="fa fa-circle-thin"></i>
+				<i class="fa fa-dot-circle-o"></i>
+				<div class="titulo"><?php echo $cpubnombre?></div>
+			</label>
+			<hr>
+			<?php if ($cpuburl != ''): ?>
+				<div class="campo-compuesto">
+					<i class="fa fa-external-link"></i>
+					<a target="_blank" href="<?php echo $cpuburl ?>">Ver</a>
+				</div>
+			<?php endif ?>
+		</li>
+		<?php
+	}
+	?>
+</ul>

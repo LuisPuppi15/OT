@@ -1,0 +1,80 @@
+<?php
+
+namespace Sistema\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Slider
+ *
+ * @ORM\Table(name="slider")
+ * @ORM\Entity(repositoryClass="Sistema\Repository\SliderRepository")
+ */
+class Slider {
+	/**
+	 * @var integer
+	 *
+	 * @ORM\Column(name="nslicodigo", type="integer", nullable=false)
+	 * @ORM\Id
+	 * @ORM\GeneratedValue(strategy="SEQUENCE")
+	 * @ORM\SequenceGenerator(sequenceName="slider_nslicodigo_seq", allocationSize=1, initialValue=1)
+	 */
+	private $nslicodigo;
+
+	/**
+	 * @var string
+	 *
+	 * @ORM\Column(name="cslijerrarquia", type="string", length=20, nullable=true)
+	 */
+	private $cslijerrarquia;
+
+	/**
+	 * @var string
+	 *
+	 * @ORM\Column(name="cslititulo", type="string", length=250, nullable=false)
+	 */
+	private $cslititulo;
+
+	/**
+	 * @var string
+	 *
+	 * @ORM\Column(name="cslidescripcion", type="string", length=250, nullable=true)
+	 */
+	private $cslidescripcion;
+
+	/**
+	 * @var string
+	 *
+	 * @ORM\Column(name="cslirutimgfull", type="string", length=500, nullable=false)
+	 */
+	private $cslirutimgfull;
+
+	/**
+	 * @var string
+	 *
+	 * @ORM\Column(name="cslirutimgmin", type="string", length=500, nullable=true)
+	 */
+	private $cslirutimgmin;
+
+	/**
+	 * @var \DateTime
+	 *
+	 * @ORM\Column(name="dslifechareg", type="date", nullable=false)
+	 */
+	private $dslifechareg;
+
+	/**
+	 * @var \DateTime
+	 *
+	 * @ORM\Column(name="dslifechapublico", type="date", nullable=true)
+	 */
+	private $dslifechapublico;
+
+	/**
+	 * @var integer
+	 *
+	 * @ORM\Column(name="nsliestado", type="integer", nullable=false)
+	 */
+	private $nsliestado;
+
+}

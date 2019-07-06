@@ -1,0 +1,54 @@
+<?php
+
+namespace Sistema\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Perusuacceso
+ *
+ * @ORM\Table(name="perusuacceso", indexes={@ORM\Index(name="IDX_9B11199BB5E1D18", columns={"nperusucodigo"}), @ORM\Index(name="IDX_9B111998B563386", columns={"nctrcodigo"})})
+ * @ORM\Entity
+ */
+class Perusuacceso {
+	/**
+	 * @var integer
+	 *
+	 * @ORM\Column(name="nperusuaccprdcodigo", type="integer", nullable=false)
+	 * @ORM\Id
+	 * @ORM\GeneratedValue(strategy="NONE")
+	 */
+	private $nperusuaccprdcodigo;
+
+	/**
+	 * @var integer
+	 *
+	 * @ORM\Column(name="nperusuaccestado", type="integer", nullable=false)
+	 */
+	private $nperusuaccestado;
+
+	/**
+	 * @var \Sistema\Entity\Perusuario
+	 *
+	 * @ORM\Id
+	 * @ORM\GeneratedValue(strategy="NONE")
+	 * @ORM\ManyToOne(targetEntity="Sistema\Entity\Perusuario", inversedBy="perusuaccesos")
+	 * @ORM\JoinColumns({
+	 *   @ORM\JoinColumn(name="nperusucodigo", referencedColumnName="nperusucodigo")
+	 * })
+	 */
+	private $perusuario;
+
+	/**
+	 * @var \Sistema\Entity\Control
+	 *
+	 * @ORM\Id
+	 * @ORM\GeneratedValue(strategy="NONE")
+	 * @ORM\ManyToOne(targetEntity="Sistema\Entity\Control", inversedBy="perusuaccesos")
+	 * @ORM\JoinColumns({
+	 *   @ORM\JoinColumn(name="nctrcodigo", referencedColumnName="nctrcodigo")
+	 * })
+	 */
+	private $control;
+
+}

@@ -1,0 +1,57 @@
+<ul class="lista-items" data-ruta-orden="<?php echo $this->url($this->ruta, array('action' => 'ordenar', 'parametros' => ':parametros')) ?>">
+	<?php
+	$index = 0;
+	foreach ($galerias as $key => $galeria) {
+		?>
+		<li class="item" data-id="<?php echo $galeria->getNgalcodigo() ?>">
+			<?php
+			$cgaltitulo = $galeria->getCgaltitulo();
+			$cgalsubtitulo = $galeria->getCgalsubtitulo();
+			$cgalimagen = $galeria->getCgalimagen();
+			$dgalfecha = ($galeria->getDgalfecha()) ? $galeria->getDgalfecha()->format('d-m-Y') : '';
+			$ngalestado = $galeria->getNgalestado();
+			?>
+			<label class="my-radio">
+				<input type="radio" name="selector">
+				<i class="fa fa-circle-thin"></i>
+				<i class="fa fa-dot-circle-o"></i>
+				<div class="titulo"><?php echo $cgaltitulo ?></div>
+			</label>
+			<?php if ($cgalimagen != ''): ?>
+				<div class="campo-img">
+					<img src="<?php echo $this->htImgUrl($cgalimagen, 'estandar') ?>" alt="">
+				</div>
+			<?php endif ?>
+			<hr>
+			<?php if ($cgalsubtitulo != ''): ?>
+				<div class="campo-compuesto">
+					<i class="fa fa-file-text-o"></i>
+					<div class="texto">
+						<?php echo $cgalsubtitulo ?>
+					</div>
+				</div>
+			<?php endif ?>
+			<?php if ($dgalfecha != ''): ?>
+				<div class="campo-compuesto">
+					<i class="fa fa-calendar"></i>
+					<div class="texto">
+						<?php echo $dgalfecha ?>
+					</div>
+				</div>
+			<?php endif ?>
+			<?php if ($ngalestado == 1): ?>
+				<div class="campo-compuesto">
+					<i class="fa fa-unlock"></i>
+					<div class="texto">No publicado</div>
+				</div>
+			<?php elseif($ngalestado == 2): ?>
+				<div class="campo-compuesto">
+					<i class="fa fa-unlock-alt"></i>
+					<div class="texto">Publicado</div>
+				</div>
+			<?php endif ?>
+		</li>
+		<?php
+	}
+	?>
+</ul>

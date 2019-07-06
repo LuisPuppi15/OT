@@ -1,0 +1,55 @@
+[data-componente~="arbol"] {
+  max-height: 360px;
+  overflow-y: auto; }
+  [data-componente~="arbol"] .jstree-container-ul .jstree-anchor {
+    position: relative;
+    padding: 0px 0px 0px 18px;
+    font-family: "Open Sans", sans-serif;
+    font-size: 12px;
+    font-weight: 400; }
+    [data-componente~="arbol"] .jstree-container-ul .jstree-anchor .jstree-icon {
+      display: none; }
+    [data-componente~="arbol"] .jstree-container-ul .jstree-anchor .texto {
+      opacity: 1;
+      color: #777; }
+    [data-componente~="arbol"] .jstree-container-ul .jstree-anchor .semi-activado {
+      opacity: 0; }
+      [data-componente~="arbol"] .jstree-container-ul .jstree-anchor .semi-activado .fa {
+        color: #19A9D5; }
+    [data-componente~="arbol"] .jstree-container-ul .jstree-anchor .activado {
+      opacity: 0; }
+      [data-componente~="arbol"] .jstree-container-ul .jstree-anchor .activado .fa {
+        color: #19A9D5; }
+    [data-componente~="arbol"] .jstree-container-ul .jstree-anchor > span:not(.texto) {
+      position: absolute;
+      top: 1px;
+      left: 0px;
+      -webkit-transition-property: opacity;
+      -webkit-transition-duration: 0.3s;
+      transition-property: opacity;
+      transition-duration: 0.3s; }
+    [data-componente~="arbol"] .jstree-container-ul .jstree-anchor .fa {
+      width: 18px;
+      font-size: 15px; }
+    [data-componente~="arbol"] .jstree-container-ul .jstree-anchor .jstree-undetermined + .jstree-themeicon + .semi-activado {
+      opacity: 1; }
+      [data-componente~="arbol"] .jstree-container-ul .jstree-anchor .jstree-undetermined + .jstree-themeicon + .semi-activado + .desactivado {
+        opacity: 0; }
+    [data-componente~="arbol"] .jstree-container-ul .jstree-anchor:not(.jstree-clicked) {
+      color: #777; }
+    [data-componente~="arbol"] .jstree-container-ul .jstree-anchor.jstree-clicked {
+      background: transparent;
+      box-shadow: none; }
+      [data-componente~="arbol"] .jstree-container-ul .jstree-anchor.jstree-clicked .texto {
+        color: #777; }
+      [data-componente~="arbol"] .jstree-container-ul .jstree-anchor.jstree-clicked .semi-activado {
+        opacity: 0; }
+      [data-componente~="arbol"] .jstree-container-ul .jstree-anchor.jstree-clicked .activado {
+        opacity: 1; }
+      [data-componente~="arbol"] .jstree-container-ul .jstree-anchor.jstree-clicked .desactivado {
+        opacity: 0; }
+    [data-componente~="arbol"] .jstree-container-ul .jstree-anchor.jstree-hovered {
+      background-color: transparent;
+      box-shadow: none; }
+
+/*# sourceMappingURL=arbol.css.map */

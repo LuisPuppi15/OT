@@ -1,0 +1,45 @@
+@mixin border-radius($a, $b, $c, $d) {
+  -webkit-border-radius: $a $b $c $d;
+  -moz-border-radius: $a $b $c $d;
+  -ms-border-radius: $a $b $c $d;
+  border-radius: $a $b $c $d;
+}
+
+@mixin rotate($degrees){
+  -ms-transform: rotate($degrees);
+  -webkit-transform: rotate($degrees);
+  transform: rotate($degrees);
+}
+
+@mixin transition($type, $duration, $effect, $delay){
+  -webkit-transition-property: $type;
+  -webkit-transition-duration: $duration;
+  -webkit-transition-timing-function: $effect;
+  -webkit-transition-delay: $delay;
+
+  transition-property: $type;
+  transition-duration: $duration;
+  transition-timing-function: $effect;
+  transition-delay: $delay;
+}
+
+@mixin transition-min($type, $duration){
+  -webkit-transition-property: $type;
+  -webkit-transition-duration: $duration;
+
+  transition-property: $type;
+  transition-duration: $duration;
+}
+
+
+@mixin shadow($a, $b, $c, $d, $color){
+  -moz-box-shadow: $a $b $c $d $color;
+  -webkit-box-shadow: $a $b $c $d $color;
+  box-shadow: $a $b $c $d $color;
+}
+
+@mixin shadow-inset($color, $a, $b, $c, $d) {
+  -moz-box-shadow: inset $color $a $b $c $d;
+  -webkit-box-shadow: inset $color $a $b $c $d;
+  box-shadow: inset $color $a $b $c $d;
+}

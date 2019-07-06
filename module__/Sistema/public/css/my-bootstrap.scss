@@ -1,0 +1,394 @@
+@import 'parametros.scss';
+@import 'mixins.scss';
+
+// Botones
+.btn{
+	font-family: $font-2;
+	font-size: 11.5px;
+	@include border-radius(0px, 0px, 0px, 0px);
+}
+.btn:hover{
+	border-color: $bd-color-1;
+}
+.btn:focus{
+	outline: 0;
+}
+.btn:active{
+	outline: 0;
+}
+.btn:active:focus{
+	outline: 0;
+}
+
+// Botones de acción
+.btn-accion{
+	background-color: #FFF;
+	border-color: $bd-color-2;
+	color: $color-1;
+	>.fa{
+		border-right: 1px solid $bd-color-1;
+	}
+}
+.btn-accion:hover, .btn-accion.activo{
+	border-color: transparent;
+	color: #FFF;
+	outline: none;
+	outline-offset: 0px;
+	box-shadow: none;
+	.fa{
+		border-right: 1px solid transparent;
+	}
+}
+.btn-accion.agregar:hover{
+	background-color: $ind-color-1;
+	.fa{
+		background-color: $ind-color-1 * 0.9;
+	}
+}
+.btn-accion.listar:hover{
+	background-color: $ind-color-2;
+	.fa{
+		background-color: $ind-color-2 * 0.9;
+	}
+}
+.btn-accion.editar:hover{
+	background-color: $ind-color-3;
+	.fa{
+		background-color: $ind-color-3 * 0.9;
+	}
+}
+.btn-accion.eliminar:hover{
+	background-color: $ind-color-4;
+	.fa{
+		background-color: $ind-color-4 * 0.9;
+	}
+}
+.btn-accion.estado:hover{
+	background-color: $ind-color-5;
+	.fa{
+		background-color: $ind-color-5 * 0.9;
+	}
+}
+.btn-accion.rol:hover{
+	background-color: $ind-color-6;
+	.fa{
+		background-color: $ind-color-6 * 0.9;
+	}
+}
+.btn-accion.accesos:hover{
+	background-color: $ind-color-7;
+	.fa{
+		background-color: $ind-color-7 * 0.9;
+	}
+}
+.btn-accion.publicar:hover{
+	background-color: $ind-color-7;
+	.fa{
+		background-color: $ind-color-7 * 0.9;
+	}
+}
+.btn-accion.ordenar:hover, .btn-accion.ordenar.activo{
+	background-color: $ind-color-8;
+	.fa{
+		background-color: $ind-color-8 * 0.9;
+	}
+}
+.btn-accion.contenido:hover, .btn-accion.contenido.activo{
+	background-color: $ind-color-9 !important;
+	.fa{
+		background-color: $ind-color-9 * 0.9 !important;
+	}
+}
+.btn-accion.agregar:focus{
+	@extend .btn-accion:hover, .btn-accion.agregar:hover;
+}
+.btn-accion.listar:focus{
+	@extend .btn-accion:hover, .btn-accion.listar:hover;
+}
+.btn-accion.editar:focus{
+	@extend .btn-accion:hover, .btn-accion.editar:hover;
+}
+.btn-accion.eliminar:focus{
+	@extend .btn-accion:hover, .btn-accion.eliminar:hover;
+}
+.btn-accion.estado:focus{
+	@extend .btn-accion:hover, .btn-accion.estado:hover;
+}
+.btn-accion.accesos:focus{
+	@extend .btn-accion:hover, .btn-accion.accesos:hover;
+}
+.btn-accion.rol:focus{
+	@extend .btn-accion:hover, .btn-accion.rol:hover;
+}
+.btn-accion.publicar:focus{
+	@extend .btn-accion:hover, .btn-accion.publicar:hover;
+}
+.btn-accion.ordenar:focus{
+	@extend .btn-accion:hover, .btn-accion.ordenar:hover;
+}
+.btn-accion.contenido:focus{
+	@extend .btn-accion:hover, .btn-accion.contenido:hover;
+}
+
+// Bootstrap select
+.bootstrap-select{
+	&:focus{
+		outline: none;
+	}
+	&.open{
+		>.dropdown-toggle{
+			border: 1px solid $bd-color-2;
+			background-color: #FFF;
+			box-shadow: inset 0px 4px 6px -4px rgba(0,0,0,.125);
+		}
+	}
+	>.btn.dropdown-toggle{
+		font-family: $font-2;
+		border: 1px solid $bd-color-2;
+		font-size: 12px;
+		&:hover{
+			border: 1px solid #FFF;
+			background-color: #FFF;
+			outline: none !important;
+			border: 1px solid $bd-color-2;
+		}
+		&:focus{
+			@extend .dropdown-toggle:hover;
+		}
+		&:active{
+			box-shadow: inset 0px 4px 5px -5px rgba(0,0,0,.125);
+			background-color: #FFF;
+		}
+	}
+	.dropdown-menu.open{
+		padding: 0;
+		@include border-radius(0px, 0px, 0px, 0px);
+		@include shadow(0px, 0px, 4px, -2px, #000);
+	}
+	.dropdown-menu.inner{
+		font-family: $font-2;
+		font-size: 12px;
+		li{
+			a{
+				padding: 5px 12px;
+				&:hover{
+					background-color: $bk-color-9 * 1.1;
+					color: #FFF;
+				}
+				&:focus{
+					outline: none !important;
+					background-color: $bk-color-9;
+					color: #FFF;
+				}
+			}
+		}
+	}
+}
+
+// Elementos de formulario
+.form-group{
+	margin-right: -15px;
+	margin-left: -15px;
+	&:after, &:before{
+		display: table;
+		content: " ";
+		clear: both;
+	}
+}
+.control-label{
+	padding-top: 7px;
+	margin-bottom: 0;
+	text-align: right;
+}
+.form-control{
+	height: 32px;
+	padding: 5px 10px;
+	font-family: $font-1;
+	border-color: $bd-color-1;
+	box-shadow: none;
+	@include border-radius(0px, 0px, 0px, 0px);
+}
+.form-control:focus{
+	border-color: $ind-color-1;
+	box-shadow: none;
+}
+form{
+	label{
+		font-size: 13px;
+		font-weight: 400;
+		font-family: $font-2;
+		color: $color-2;
+	}
+	textarea{
+		resize: none;
+		min-height: 70px;
+	}
+}
+
+// Botones de formulario
+.btn-modal{
+	font-weight: 600;
+}
+.btn-modal.enviar{
+	color: #FFF;
+	border: 1px solid $ind-color-envia;
+	background-color: $ind-color-envia;
+}
+.btn-modal.enviar:hover{
+	background-color: $ind-color-envia * 0.8;
+}
+.btn-modal.cancelar{
+	color: $color-1;
+	background-color: $ind-color-cancel;
+}
+.btn-modal.cancelar:hover{
+	background-color: $ind-color-cancel * 0.95;
+}
+.btn-modal.eliminar{
+	color: #FFF;
+	border: 1px solid $ind-color-elimi;
+	background-color: $ind-color-elimi;
+}
+.btn-modal.eliminar:hover{
+	background-color: $ind-color-elimi * 0.9;
+}
+.btn-modal.aceptar{
+	color: #FFF;
+	border: 1px solid $ind-color-acept;
+	background-color: $ind-color-acept;
+}
+.btn-modal.aceptar:hover{
+	background-color: $ind-color-acept * 0.8;
+}
+
+// Modal
+.modal-sm{
+	width: 400px;
+}
+.modal-footer{
+	margin: 0;
+	padding: 12px 0px 0px 0px;
+}
+
+// Datepicker
+.datepicker.dropdown-menu{
+	z-index: 2000 !important;
+	font-family: $font-2;
+	font-size: 12px;
+	@include border-radius(0px, 0px, 0px, 0px);
+	@include shadow(0px, 0px, 6px, -3px, #000);
+}
+.datepicker{
+	table{
+		tr{
+			td, th{
+				@include border-radius(3px, 3px, 3px, 3px);
+			}
+		}
+	}
+}
+
+// Alertas
+.alert{
+	margin: 0px 0px 15px 0px;
+	font-family: $font-2;
+	font-size: 12px;
+	font-weight: 600;
+	border: none;
+	@include border-radius(2px, 2px, 2px, 2px);
+}
+.alert.alert-danger{
+	color: $ind-color-4 * 0.7;
+	background-color: $ind-color-4 * 4.2;
+}
+
+// Errores
+.has-error{
+	.control-label{
+		color: $ind-error;
+	}
+	.form-control, .form-control:focus{
+		border: 1px solid $ind-error;
+		box-shadow: none;
+	}
+	.form-control-feedback{
+		right: 15px;
+		color: $ind-error;
+	}
+	.help-block{
+		color: $ind-error;
+	}
+}
+.has-success{
+	.control-label{
+		color: $ind-success;
+	}
+	.form-control, .form-control:focus{
+		border: 1px solid $ind-success;
+		box-shadow: none;
+	}
+	.form-control-feedback{
+		right: 15px;
+		color: $ind-success;
+	}
+	.help-block{
+		color: $ind-success;
+	}
+}
+
+// Paginador
+.pagination{
+	>li{
+		>a{
+			font-family: $font-1;
+			font-size: 12px;
+			color: $color-1;
+		}
+		>a:hover{
+			background-color: #FFF;
+			color: $bk-color-1;
+		}
+		>a:first-child{
+			@include border-radius(0px, 0px, 0px, 0px);
+		}
+		>a:last-child{
+			@include border-radius(0px, 0px, 0px, 0px);
+		}
+	}
+	>li.active{
+		>a{
+			color: #FFF;
+			border: 1px solid transparent;
+			background-color: $bk-color-9 * 0.8;
+			font-weight: bold;
+		}
+		>a:hover{
+			@extend a;
+		}
+	}
+}
+
+// Tabla
+.table.table-striped{
+	>tbody{
+		>tr{
+			>td{
+				// border-top: 1px solid $bd-color-1;
+				border: none;
+			}
+		}
+		>tr:nth-child(odd){
+			>td{
+				// background-color: $bk-color-8;
+			}
+			>th{
+				// background-color: $bk-color-8;
+			}
+		}
+		>tr:first-child{
+			>td{
+				background-color: #FFF;
+			}
+		}
+	}
+}

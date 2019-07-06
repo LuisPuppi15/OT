@@ -1,0 +1,19 @@
+<ul class="lista-items">
+	<?php
+	$index = 0;
+	foreach ($titulos as $key => $titulo) {
+		?>
+		<li class="item" data-id="<?php echo $titulo->getIdtitulo() ?>">
+			<label class="my-radio">
+				<input type="radio" name="selector">
+				<i class="fa fa-circle-thin"></i>
+				<i class="fa fa-dot-circle-o"></i>
+				<div class="titulo"><?php echo $titulo->getTitulo() ?></div>
+			</label>
+			<hr>
+			<div class="detalle"><?php echo $titulo->getDescripcion() ?></div>
+		</li>
+		<?php
+	}
+	?>
+</ul>

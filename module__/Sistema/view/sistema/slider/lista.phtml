@@ -1,0 +1,57 @@
+<ul class="lista-items" data-ruta-orden="<?php echo $this->url($this->ruta, array('action' => 'ordenar', 'parametros' => ':parametros')) ?>">
+	<?php
+	$index = 0;
+	foreach ($sliders as $key => $slider) {
+		?>
+		<li class="item" data-id="<?php echo $slider->getNslicodigo() ?>">
+			<?php
+			$cslititulo = $slider->getCslititulo();
+			$cslirutimgfull = $slider->getCslirutimgfull();
+			$dslifechareg = $slider->getDslifechareg()->format('d-m-Y');
+			$cslidescripcion = $slider->getCslidescripcion();
+			$nsliestado = $slider->getNsliestado();
+			?>
+			<label class="my-radio">
+				<input type="radio" name="selector">
+				<i class="fa fa-circle-thin"></i>
+				<i class="fa fa-dot-circle-o"></i>
+				<div class="titulo"><?php echo $cslititulo ?></div>
+			</label>
+			<?php if ($cslirutimgfull != ''): ?>
+				<div class="campo-img">
+					<img src="<?php echo $this->htImgUrl($cslirutimgfull, 'estandar') ?>" alt="">
+				</div>
+			<?php endif ?>
+			<hr>
+			<?php if ($dslifechareg != ''): ?>
+				<div class="campo-compuesto">
+					<i class="fa fa-calendar"></i>
+					<div class="texto">
+						<?php echo $dslifechareg ?>
+					</div>
+				</div>
+			<?php endif ?>
+			<?php if ($cslidescripcion != ''): ?>
+				<div class="campo-compuesto">
+					<i class="fa fa-file-text-o"></i>
+					<div class="texto">
+						<?php echo $cslidescripcion ?>
+					</div>
+				</div>
+			<?php endif ?>
+			<?php if ($nsliestado == 1): ?>
+				<div class="campo-compuesto">
+					<i class="fa fa-unlock"></i>
+					<div class="texto">No publicado</div>
+				</div>
+			<?php elseif($nsliestado == 2): ?>
+				<div class="campo-compuesto">
+					<i class="fa fa-unlock-alt"></i>
+					<div class="texto">Publicado</div>
+				</div>
+			<?php endif ?>
+		</li>
+		<?php
+	}
+	?>
+</ul>

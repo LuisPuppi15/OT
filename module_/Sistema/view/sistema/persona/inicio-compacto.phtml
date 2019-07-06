@@ -1,0 +1,49 @@
+<div class="componente" data-componente="tabla-mantenedor" data-tabla-mantenedor-nombre="tabla-mantenedor" data-ruta="<?php echo $this->rutas['filtrar'] ?>" data-filtro="<?php echo $this->filtro ?>">
+	<div class="marco-data">
+		<div class="row data">
+			<div class="col-lg-12">
+				<div class="row tabla">
+					<div class="col-lg-12">
+						<div class="cnt-tabla cnt-tabla-modal">
+							<table class="table table-striped">
+								<tr class="opciones">
+									<td class="icono"><span class="glyphicon glyphicon-th"></span></td>
+									<td>
+										<h1 class="titulo">Lista de personas</h1>
+									</td>
+									<td>
+										<button class="btn btn-default btn-accion agregar" data-ruta="<?php echo $this->rutas['agregar'] ?>" data-accion="agregar">
+											<i class="fa fa-file-text-o"></i>
+											<span class="texto">Registrar</span>
+										</button>
+									</td>
+								</tr>
+								<tr class="campos-busqueda" data-items-default="<?php echo $this->items ?>">
+									<td></td>
+									<td>
+										<input class="form-control" type="text" name="nperdni" id="" placeholder="DNI" autocomplete="off">
+									</td>
+									<td>
+										<input class="form-control" type="text" name="cperapellidos" id="" placeholder="Apellidos" autocomplete="off">
+									</td>
+								</tr>
+								<tr></tr>
+								<tr class="cabecera">
+									<th></th>
+									<th>DNI</th>
+									<th>Apellidos</th>
+								</tr>
+								<?php echo $this->partial('sistema/persona/tabla-compacto.phtml', array('personas' => $this->personas)) ?>
+							</table>
+						</div>
+					</div>
+				</div>
+				<div class="row paginador">
+					<div class="col-lg-12 text-center">
+						<?php echo $this->partial('sistema/paginador.phtml', array('paginador' => $this->paginador, 'ruta' => $this->ruta)) ?>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,40 @@
+[data-componente~="formulario"] .file-group .input-mirror {
+  opacity: 0;
+  height: 0;
+  width: 0;
+  padding: 0;
+  margin: 0; }
+[data-componente~="formulario"] .file-group .form-control-feedback {
+  visibility: hidden; }
+[data-componente~="formulario"] .form-group .file-input .file-preview {
+  border-color: #EEEFF1;
+  -webkit-border-radius: 0px 0px 0px 0px;
+  -moz-border-radius: 0px 0px 0px 0px;
+  -ms-border-radius: 0px 0px 0px 0px;
+  border-radius: 0px 0px 0px 0px; }
+  [data-componente~="formulario"] .form-group .file-input .file-preview .file-preview-frame, [data-componente~="formulario"] .form-group .file-input .file-preview .file-preview-frame:hover {
+    padding: 6px;
+    border: 1px solid #DDD;
+    box-shadow: none; }
+  [data-componente~="formulario"] .form-group .file-input .file-preview .file-preview-status {
+    font-family: "Open Sans", sans-serif;
+    color: #555;
+    font-size: 12px;
+    font-weight: 600; }
+[data-componente~="formulario"] .form-group .file-input .input-group .file-caption-name {
+  font-size: 12px;
+  font-weight: 600; }
+[data-componente~="formulario"] .form-group .file-input .input-group button:not(.btn-file) {
+  height: 31px;
+  border-color: #EEEFF1; }
+[data-componente~="formulario"] .form-group .file-input .input-group .btn-file:hover {
+  border-color: transparent;
+  border-left-color: #DDD; }
+[data-componente~="formulario"] .form-group .file-input .input-group .btn-file input[type="file"] {
+  z-index: 10000; }
+[data-componente~="formulario"] .form-group .img-thumb > img {
+  width: 160px;
+  padding: 5px;
+  border: 1px solid #DDD; }
+
+/*# sourceMappingURL=formulario.css.map */

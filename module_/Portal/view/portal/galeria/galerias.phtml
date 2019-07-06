@@ -1,0 +1,30 @@
+<?php $this->placeholder('contenido')->captureStart(); ?>
+<div class="cont-galerias">
+	<div class="sidebar">
+		<?php echo $this->partial('portal/sidebar.phtml') ?>
+	</div>
+	<div class="lista">
+		<h1 class="titulo-con-logo"><i class="fa fa-file-image-o"></i><span>GALERÍAS</span></h1>
+		<ul class="galerias">
+			<?php
+			foreach ($this->galerias as $galeria) {
+				$href = $this->url('portal/galeria', array('codigo' => $galeria->getNgalcodigo()));
+				?>
+				<li>
+					<div class="galeria">
+						<a href="<?php echo $href ?>">
+							<img src="<?php echo $this->htImgUrl($galeria->getCgalimagen(), 'estandar') ?>" alt="" class="miniatura">
+						</a>
+						<div class="texto">
+							<div class="titulo"><?php echo $galeria->getCgaltitulo() ?></div>
+							<div class="subtitulo"><?php echo $galeria->getCgalsubtitulo() ?></div>
+						</div>
+					</div>
+				</li>
+				<?php
+			}
+			?>
+		</ul>
+	</div>
+</div>
+<?php $this->placeholder('contenido')->captureEnd(); ?>

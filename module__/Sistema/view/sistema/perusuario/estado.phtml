@@ -1,0 +1,45 @@
+<div class="componente" data-componente="modal" data-modal-nombre="modal-post" data-modal-width="400" data-modal-title="Estado">
+	<div class="marco">
+		<div class="componente" data-componente="formulario" data-formulario-nombre="formulario">
+			<?php
+			$form = $this->form;
+			$form->setAttribute('data-ruta', $this->url($this->ruta, array('action' => 'estado', 'parametros' => $perusuario->getNperusucodigo())));
+
+			echo $this->form()->openTag($form);
+			?>
+			<div class="modal-body">
+				<?php
+				$nperusuestado = $perusuario->getNperusuestado();
+
+				if ($nperusuestado == 1) {
+					$clase = 'danger';
+					$mensaje = '¿Está seguro que desea deshabilitar el item '.$perusuario->getCperusuname().'?';
+				} elseif ($nperusuestado == 2) {
+					$clase = 'warning';
+					$mensaje = '¿Está seguro que desea habilitar el item '.$perusuario->getCperusuname().'?';
+				}
+				?>
+				<div class="alert alert-<?php echo $clase ?>" role="alert">
+					<?php echo $mensaje ?>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default btn-modal cancelar" data-dismiss="modal">Cancelar</button>
+					<?php
+					// guardar
+					$button = $form->get('enviar');
+					$button->setOptions(array(
+						'label' => 'Aceptar',
+						'column-size' => 'sm-10 col-sm-offset-2',
+						));
+					$button->setAttributes(array(
+						'type' => 'submit',
+						'class' => 'btn btn-modal enviar',
+						));
+					echo $this->formButton($button);
+					?>
+				</div>
+				<?php echo $this->form()->closeTag($form); ?>
+			</div>
+		</div>
+	</div>
+</div>

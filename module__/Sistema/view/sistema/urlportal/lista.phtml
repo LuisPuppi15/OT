@@ -1,0 +1,26 @@
+<ul class="lista-items">
+	<?php
+	$index = 0;
+	foreach ($urlportals as $key => $urlportal) {
+		$curlpornombre = $urlportal->getCurlpornombre();
+		$curlporurl = $urlportal->getCurlporurl();
+		?>
+		<li class="item" data-id="<?php echo $urlportal->getNurlporcodigo() ?>">
+			<label class="my-radio">
+				<input type="radio" name="selector">
+				<i class="fa fa-circle-thin"></i>
+				<i class="fa fa-dot-circle-o"></i>
+				<div class="titulo"><?php echo $curlpornombre?></div>
+			</label>
+			<hr>
+			<?php if ($curlporurl != ''): ?>
+				<div class="campo-compuesto">
+					<i class="fa fa-external-link"></i>
+					<a target="_blank" href="<?php echo $curlporurl ?>">Ver</a>
+				</div>
+			<?php endif ?>
+		</li>
+		<?php
+	}
+	?>
+</ul>

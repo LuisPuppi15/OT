@@ -1,0 +1,33 @@
+<ul class="lista-items">
+	<?php
+	$index = 0;
+	foreach ($nivelmenus as $key => $nivelmenu) {
+		?>
+		<li class="item" data-id="<?php echo $nivelmenu->getNnivmencodigo() ?>">
+			<?php
+			$cnivmennombre = $nivelmenu->getCnivmennombre();
+			$cnivmendescripcion = $nivelmenu->getCnivmendescripcion();
+			?>
+			<label class="my-radio">
+				<input type="radio" name="selector">
+				<i class="fa fa-circle-thin"></i>
+				<i class="fa fa-dot-circle-o"></i>
+				<div class="titulo"><?php echo $cnivmennombre ?></div>
+			</label>
+			<div class="campo-icono">
+				<i class="fa fa-bars"></i>
+			</div>
+			<hr>
+			<?php if ($cnivmendescripcion != ''): ?>
+				<div class="campo-compuesto">
+					<i class="fa fa-file-text-o"></i>
+					<div class="texto">
+						<?php echo $cnivmendescripcion ?>
+					</div>
+				</div>
+			<?php endif ?>
+		</li>
+		<?php
+	}
+	?>
+</ul>

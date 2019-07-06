@@ -1,0 +1,31 @@
+<?php $this->placeholder('contenido')->captureStart(); ?>
+<div class="cont-boletines">
+	<div class="sidebar">
+		<?php echo $this->partial('portal/sidebar.phtml') ?>
+	</div>
+	<div class="lista">
+		<h1 class="titulo-con-logo"><i class="fa fa-comment"></i><span>BOLETINES</span></h1>
+		<ul class="boletines">
+			<?php
+			$base = $this->basePath().'/upload/pdf/';
+			foreach ($this->boletines as $boletin) {
+				$ruta = $base.$boletin->getCbolrutapdf();
+				?>
+				<li>
+					<div class="boletin">
+						<a href="<?php echo $ruta ?>" target="_blank">
+							<img src="<?php echo $this->htImgUrl($boletin->getCbolrutaimg(), 'boletin') ?>" alt="" class="miniatura">
+						</a>
+						<div class="texto">
+							<div class="titulo"><?php echo $boletin->getCboltitulo() ?></div>
+							<div class="anio"><strong>Año: </strong><?php echo $boletin->getDbolanio() ?></div>
+						</div>
+					</div>
+				</li>
+				<?php
+			}
+			?>
+		</ul>
+	</div>
+</div>
+<?php $this->placeholder('contenido')->captureEnd(); ?>

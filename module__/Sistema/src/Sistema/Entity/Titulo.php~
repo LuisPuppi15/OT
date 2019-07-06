@@ -1,0 +1,52 @@
+<?php
+
+namespace Sistema\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Titulo
+ *
+ * @ORM\Table(name="titulo")
+ * @ORM\Entity(repositoryClass="Sistema\Repository\TituloRepository")
+ */
+class Titulo {
+	/**
+	 * @var integer
+	 *
+	 * @ORM\Column(name="idtitulo", type="integer", nullable=false)
+	 * @ORM\Id
+	 * @ORM\GeneratedValue(strategy="SEQUENCE")
+	 * @ORM\SequenceGenerator(sequenceName="titulo_idtitulo_seq", allocationSize=1, initialValue=1)
+	 */
+	private $idtitulo;
+
+	/**
+	 * @var string
+	 *
+	 * @ORM\Column(name="titulo", type="string", length=45, nullable=false)
+	 */
+	private $titulo;
+
+	/**
+	 * @var string
+	 *
+	 * @ORM\Column(name="descripcion", type="string", length=45, nullable=true)
+	 */
+	private $descripcion;
+
+	/**
+	 * @var string
+	 *
+	 * @ORM\Column(name="referencia", type="string", length=45, nullable=true)
+	 */
+	private $referencia;
+
+	/**
+	 * @var integer
+	 *
+	 * @ORM\Column(name="estado", type="integer", nullable=false)
+	 */
+	private $estado;
+
+}

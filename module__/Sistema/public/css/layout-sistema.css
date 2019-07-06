@@ -1,0 +1,224 @@
+html {
+  visibility: hidden;
+  opacity: 0; }
+  html body {
+    background-color: #F0F3F5; }
+    html body #base-path {
+      display: none; }
+    html body .center {
+      text-align: center; }
+    html body .container-fluid.main {
+      padding: 0; }
+      html body .container-fluid.main .cabecera {
+        margin: 0;
+        background-color: #FFF; }
+        html body .container-fluid.main .cabecera .logo {
+          padding: 10px 0px; }
+          html body .container-fluid.main .cabecera .logo img {
+            float: left;
+            margin: 0px 10px 0px 0px;
+            width: 60px; }
+          html body .container-fluid.main .cabecera .logo .titulo {
+            float: left;
+            font-family: "Gudea", sans-serif;
+            color: #555; }
+            html body .container-fluid.main .cabecera .logo .titulo h1 {
+              margin: 10px 0px 4px 0px;
+              font-size: 22px; }
+            html body .container-fluid.main .cabecera .logo .titulo h3 {
+              font-size: 14px;
+              margin: 0px 0px 8px 0px; }
+        html body .container-fluid.main .cabecera .opciones {
+          overflow: hidden;
+          padding: 14px 0px; }
+          html body .container-fluid.main .cabecera .opciones .botones {
+            float: right;
+            list-style: none; }
+            html body .container-fluid.main .cabecera .opciones .botones li {
+              float: left;
+              margin: 0px 0px 0px 18px;
+              font-size: 14px;
+              color: #555;
+              font-family: "Gudea", sans-serif; }
+              html body .container-fluid.main .cabecera .opciones .botones li .glyphicon {
+                margin: 0px 4px 0px 0px; }
+              html body .container-fluid.main .cabecera .opciones .botones li a {
+                color: #555; }
+              html body .container-fluid.main .cabecera .opciones .botones li a:hover {
+                text-decoration: none; }
+            html body .container-fluid.main .cabecera .opciones .botones li.opcion:hover {
+              color: #259FA6; }
+              html body .container-fluid.main .cabecera .opciones .botones li.opcion:hover a {
+                color: #259FA6; }
+          html body .container-fluid.main .cabecera .opciones .fecha {
+            float: right;
+            clear: right;
+            margin: 6px 0px 0px 0px;
+            color: #777;
+            font-size: 12px; }
+            html body .container-fluid.main .cabecera .opciones .fecha .glyphicon {
+              float: left;
+              margin: 0px 6px 0px 0px; }
+            html body .container-fluid.main .cabecera .opciones .fecha .texto {
+              float: left;
+              font-family: "Open Sans", sans-serif; }
+      html body .container-fluid.main .cuerpo {
+        margin: 0; }
+        html body .container-fluid.main .cuerpo > [class*="col-"] {
+          padding: 0; }
+        html body .container-fluid.main .cuerpo .menu-principal {
+          position: relative;
+          z-index: 1; }
+          html body .container-fluid.main .cuerpo .menu-principal .nav {
+            background-color: #313E3E; }
+          html body .container-fluid.main .cuerpo .menu-principal .nav-tabs {
+            border-left: none;
+            border-top: none;
+            border-right: none;
+            border-bottom: 4px solid #259FA6; }
+            html body .container-fluid.main .cuerpo .menu-principal .nav-tabs > li {
+              margin: 0;
+              padding: 3px 0px 0px 0px; }
+              html body .container-fluid.main .cuerpo .menu-principal .nav-tabs > li > a {
+                position: relative;
+                margin: 0;
+                padding: 6px 13px 8px 13px;
+                font-size: 13px;
+                font-family: "Gudea", sans-serif;
+                color: #CBD6D6;
+                font-weight: 600;
+                border: none;
+                -webkit-border-radius: 0px 0px 0px 0px;
+                -moz-border-radius: 0px 0px 0px 0px;
+                -ms-border-radius: 0px 0px 0px 0px;
+                border-radius: 0px 0px 0px 0px; }
+                html body .container-fluid.main .cuerpo .menu-principal .nav-tabs > li > a .fa {
+                  margin: 0px 6px 0px 0px; }
+            html body .container-fluid.main .cuerpo .menu-principal .nav-tabs > li:not(.active) > a:hover {
+              border: none;
+              background-color: transparent; }
+            html body .container-fluid.main .cuerpo .menu-principal .nav-tabs > li.active > a {
+              border-left: 0px solid transparent;
+              background-color: #259FA6;
+              color: #FFF; }
+          html body .container-fluid.main .cuerpo .menu-principal + .tab-content > .tab-pane > .row {
+            margin: 0; }
+        html body .container-fluid.main .cuerpo .menu-interno {
+          padding: 0; }
+          html body .container-fluid.main .cuerpo .menu-interno .nav {
+            height: 100%;
+            border: none; }
+          html body .container-fluid.main .cuerpo .menu-interno .nav-pills {
+            border-right: 1px solid #EEEFF1; }
+            html body .container-fluid.main .cuerpo .menu-interno .nav-pills li.desplegable a {
+              background-color: transparent; }
+              html body .container-fluid.main .cuerpo .menu-interno .nav-pills li.desplegable a > .button-item {
+                width: 100%;
+                font-family: "Open Sans", sans-serif;
+                font-size: 12.5px;
+                text-align: left;
+                color: #656B79;
+                border: none;
+                padding: 12px 8px;
+                background-color: transparent; }
+                html body .container-fluid.main .cuerpo .menu-interno .nav-pills li.desplegable a > .button-item > .fa {
+                  margin: 0px 6px 0px 0px;
+                  border: none;
+                  -webkit-transition-property: all;
+                  -webkit-transition-duration: 0.15s;
+                  -webkit-transition-timing-function: linear;
+                  -webkit-transition-delay: 0s;
+                  transition-property: all;
+                  transition-duration: 0.15s;
+                  transition-timing-function: linear;
+                  transition-delay: 0s; }
+              html body .container-fluid.main .cuerpo .menu-interno .nav-pills li.desplegable a > .button-item:not(.collapsed) > .fa {
+                -ms-transform: rotate(90deg);
+                -webkit-transform: rotate(90deg);
+                transform: rotate(90deg); }
+              html body .container-fluid.main .cuerpo .menu-interno .nav-pills li.desplegable a > .button-item:active {
+                box-shadow: none; }
+              html body .container-fluid.main .cuerpo .menu-interno .nav-pills li.desplegable a > .button-item:focus {
+                outline: none; }
+            html body .container-fluid.main .cuerpo .menu-interno .nav-pills li.desplegable .subitem {
+              padding: 12px 8px 12px 30px;
+              font-family: "Open Sans", sans-serif;
+              font-size: 12px;
+              display: block;
+              color: #555;
+              background-color: #E0E4E7; }
+            html body .container-fluid.main .cuerpo .menu-interno .nav-pills li.desplegable .subitem:hover {
+              color: #555;
+              text-decoration: none; }
+            html body .container-fluid.main .cuerpo .menu-interno .nav-pills li.desplegable .subitem.active {
+              background-color: #95A5A6;
+              color: #FFF; }
+            html body .container-fluid.main .cuerpo .menu-interno .nav-pills > li {
+              border-bottom: 1px solid #E3E8EB; }
+              html body .container-fluid.main .cuerpo .menu-interno .nav-pills > li > a {
+                padding: 0;
+                font-family: "Open Sans", sans-serif;
+                color: #5F7676;
+                font-size: 12.5px;
+                margin-top: 0px;
+                -webkit-border-radius: 0px 0px 0px 0px;
+                -moz-border-radius: 0px 0px 0px 0px;
+                -ms-border-radius: 0px 0px 0px 0px;
+                border-radius: 0px 0px 0px 0px; }
+                html body .container-fluid.main .cuerpo .menu-interno .nav-pills > li > a > .fa {
+                  margin: 0px 6px 0px 0px; }
+              html body .container-fluid.main .cuerpo .menu-interno .nav-pills > li > a.link-item {
+                padding: 12px 8px; }
+              html body .container-fluid.main .cuerpo .menu-interno .nav-pills > li a:hover {
+                background-color: #F5F7F8; }
+            html body .container-fluid.main .cuerpo .menu-interno .nav-pills > li + li {
+              margin-top: 0px; }
+            html body .container-fluid.main .cuerpo .menu-interno .nav-pills > li.active > a {
+              color: #FFF;
+              background-color: #95A5A6; }
+              html body .container-fluid.main .cuerpo .menu-interno .nav-pills > li.active > a > .button-item {
+                background-color: #F5F7F8; }
+        html body .container-fluid.main .cuerpo .contenido {
+          padding: 0;
+          background-color: #FFF; }
+          html body .container-fluid.main .cuerpo .contenido .tab-pane {
+            padding: 15px 15px 15px 15px;
+            background-color: #F9F9F9; }
+          html body .container-fluid.main .cuerpo .contenido .navegador ul {
+            display: inline-block;
+            margin: 0px 0px 4px 0px;
+            padding: 0;
+            list-style: none; }
+            html body .container-fluid.main .cuerpo .contenido .navegador ul li {
+              float: left;
+              margin: 0px 10px 6px 10px;
+              font-family: "Gudea", sans-serif;
+              color: #7b7d82; }
+              html body .container-fluid.main .cuerpo .contenido .navegador ul li a {
+                color: #7b7d82; }
+              html body .container-fluid.main .cuerpo .contenido .navegador ul li a:hover {
+                text-decoration: none; }
+              html body .container-fluid.main .cuerpo .contenido .navegador ul li a.resaltado {
+                color: #515050;
+                font-weight: bold; }
+          html body .container-fluid.main .cuerpo .contenido .marco-data {
+            padding: 10px;
+            background-color: #FFF; }
+          html body .container-fluid.main .cuerpo .contenido .botonera {
+            padding: 0px 0px; }
+            html body .container-fluid.main .cuerpo .contenido .botonera .btn {
+              margin: 0px 2px 0px 0px;
+              padding: 0px 10px 0px 0px; }
+              html body .container-fluid.main .cuerpo .contenido .botonera .btn .fa {
+                padding: 8px 10px; }
+              html body .container-fluid.main .cuerpo .contenido .botonera .btn .texto {
+                padding: 0px 0px 0px 6px; }
+          html body .container-fluid.main .cuerpo .contenido .paginador {
+            margin: 10px 0px 0px 0px;
+            border-top: 1px solid #EEEFF1; }
+            html body .container-fluid.main .cuerpo .contenido .paginador .pagination {
+              margin: 10px 0px 0px 0px; }
+        html body .container-fluid.main .cuerpo .modal-template {
+          display: none; }
+
+/*# sourceMappingURL=layout-sistema.css.map */

@@ -1,0 +1,28 @@
+<?php $this->placeholder('contenido')->captureStart(); ?>
+<div class="cont-galeria">
+	<div class="sidebar">
+		<?php echo $this->partial('portal/sidebar.phtml') ?>
+	</div>
+	<div class="lista">
+		<h1 class="titulo-con-logo"><i class="fa fa-picture-o"></i><span>IMÁGENES</span></h1>
+		<ul class="galeria">
+			<?php
+			$base = $this->basePath().'/upload/img/';
+			foreach ($this->imagengalerias as $imagengaleria) {
+				$ruta = $base.$imagengaleria->getCimagalimg();
+				$codigo = $imagengaleria->getNimagalcodigo();
+				$titulo = $imagengaleria->getCimagaltitulo();
+				?>
+				<li>
+					<a href="<?php echo $ruta ?>" data-lightbox="roadtrip" data-title="<?php echo $titulo ?>" class="imagen">
+						<img src="<?php echo $this->htImgUrl($imagengaleria->getCimagalimg(), 'imagengaleria') ?>" alt="" class="miniatura">
+						<div class="cover"></div>
+					</a>
+				</li>
+				<?php
+			}
+			?>
+		</ul>
+	</div>
+</div>
+<?php $this->placeholder('contenido')->captureEnd(); ?>

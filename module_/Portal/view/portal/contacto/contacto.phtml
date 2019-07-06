@@ -1,0 +1,22 @@
+<?php $this->placeholder('contenido')->captureStart(); ?>
+<div class="cont-contacto">
+	<div class="sidebar">
+		<?php echo $this->partial('portal/sidebar.phtml') ?>
+	</div>
+	<div class="detalle">
+		<h2><?php echo $contacto->getTitulo() ?></h2>
+		<div class="contacto1">
+			<p><?php echo $contacto->getDireccion() ?></p>
+		</div>
+		<div class="contacto2">
+			<p>
+				<?php
+				echo 'Teléfono: '.$contacto->getTelefono().'<br>';
+				echo 'Anexos: '.$contacto->getAnexo().'<br>';
+				echo $contacto->getEmail();
+				?>
+			</p>
+		</div>
+	</div>
+</div>
+<?php $this->placeholder('contenido')->captureEnd(); ?>

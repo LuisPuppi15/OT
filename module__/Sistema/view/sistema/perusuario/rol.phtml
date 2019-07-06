@@ -1,0 +1,40 @@
+<div class="componente" data-componente="modal" data-modal-nombre="modal-post" data-modal-title="Asignar rol" data-modal-width="400" data-modal-height="176">
+	<div class="marco">
+		<div class="componente" data-componente="formulario" data-formulario-nombre="formulario">
+			<?php
+			$form = $this->form;
+			$form->setAttribute('data-ruta', $this->url($this->ruta, array('action' => 'rol', 'parametros' => $this->id)));
+
+			echo $this->form()->openTag($form);
+			?>
+			<div class="modal-body">
+				<?php
+				$layoutHorizontal = TwbBundle\Form\View\Helper\TwbBundleForm::LAYOUT_HORIZONTAL;
+
+				// rol
+				$input = $form->get('rol');
+				$input->setOptions(array(
+					'column-size' => 'lg-10',
+					'label_attributes' => array(
+						'class' => 'col-lg-2',
+						),
+					'twb-layout' => $layoutHorizontal,
+					));
+				echo $this->formRow($input);
+				?>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default btn-modal cancelar" data-dismiss="modal">Cancelar</button>
+					<?php
+					// enviar
+					$button = $form->get('enviar');
+					$button->setOptions(array(
+						'column-size' => 'sm-10 col-sm-offset-2',
+						));
+					echo $this->formButton($button);
+					?>
+				</div>
+				<?php echo $this->form()->closeTag($form); ?>
+			</div>
+		</div>
+	</div>
+</div>

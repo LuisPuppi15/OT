@@ -1,0 +1,18 @@
+<?php
+$index = 0;
+foreach ($personas as $key => $persona) {
+	?>
+	<tr class="item" data-id="<?php echo $persona->getNpercodigo() ?>">
+		<td>
+			<label class="my-radio">
+				<input type="radio" name="selector" id="">
+				<i class="fa fa-circle-thin"></i>
+				<i class="fa fa-dot-circle-o"></i>
+			</label>
+		</td>
+		<td><?php echo $persona->getNperdni() ?></td>
+		<td><?php echo $persona->getCperapellidos() ?></td>
+	</tr>
+	<?php
+}
+?>
